@@ -9,6 +9,14 @@ class GetheringPhase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.brown.shade400,
+        title: Text(
+          controller.Monster!.value.monsterName,
+          style: TextAppStyle.textsBodySuperLargeProminent(color: Colors.white),
+        ),
+        centerTitle: true,
+      ),
       backgroundColor: const Color.fromARGB(255, 241, 217, 209),
       body: Obx(() => Center(
             child: SingleChildScrollView(
@@ -18,9 +26,23 @@ class GetheringPhase extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(
-                    controller.Monster!.value.thumbnail!,
-                    scale: 1.5,
+                  Container(
+                    padding: EdgeInsets.all(15),
+                    margin: EdgeInsets.only(top: 20),
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.25),
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: Image.asset(controller.Monster!.value.thumbnail!),
                   ),
                   SizedBox(height: 20),
                   Container(
@@ -70,10 +92,14 @@ class GetheringPhase extends StatelessWidget {
                     children:
                         controller.dialog_select.value.actions.map((action) {
                       return InkWell(
-                          onTap: () {
+                          onTap: () async {
                             if (controller.Monster!.value.dialogHuntingPhase
                                 .contains(
                                     controller.dialog_select.value.dialogId)) {
+                              await controller.updateAttemptedQuest(
+                                  controller.monster_select.value,
+                                  controller.quest_select.value,
+                                  controller.quest_select_starting_point.value);
                               Get.back();
                             } else {
                               controller.getDialogById(action.pathToDialog!,

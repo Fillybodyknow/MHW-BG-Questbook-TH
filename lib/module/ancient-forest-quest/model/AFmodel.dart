@@ -122,3 +122,53 @@ class MonsterModel {
     );
   }
 }
+
+class AttemptedQuestModel {
+  final int monsterId;
+  final int questId;
+  final List<int> attempted;
+
+  AttemptedQuestModel({
+    required this.monsterId,
+    required this.questId,
+    required this.attempted,
+  });
+
+  factory AttemptedQuestModel.fromJson(Map<String, dynamic> json) {
+    return AttemptedQuestModel(
+      monsterId: json['monster_id'],
+      questId: json['quest_id'],
+      attempted: List<int>.from(json['attempted']),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'monster_id': monsterId,
+      'quest_id': questId,
+      'attempted': attempted,
+    };
+  }
+}
+
+class HunterDataModel {
+  final List<AttemptedQuestModel> attemptedQuest;
+
+  HunterDataModel({
+    required this.attemptedQuest,
+  });
+
+  factory HunterDataModel.fromJson(Map<String, dynamic> json) {
+    return HunterDataModel(
+      attemptedQuest: (json['attempted_quest'] as List)
+          .map((quest) => AttemptedQuestModel.fromJson(quest))
+          .toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'attempted_quest': attemptedQuest.map((quest) => quest.toJson()).toList(),
+    };
+  }
+}

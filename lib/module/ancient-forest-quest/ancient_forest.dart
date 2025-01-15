@@ -33,11 +33,12 @@ class Ancientforest extends StatelessWidget {
                                   vertical: 50,
                                 )),
                             onPressed: () {
+                              //controller.loadHunterData();
                               controller.monster_select.value =
                                   monster.monsterId;
                               controller.getMonsterById(
                                   controller.monster_select.value);
-                              print(controller.monster_select.value);
+
                               Get.toNamed(Routes.SelectQuest);
                             },
                             child: Text(

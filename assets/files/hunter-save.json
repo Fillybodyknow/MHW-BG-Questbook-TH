@@ -1,0 +1,24 @@
+{
+    "attempted_quest": [
+        {
+            "monster_id": 1,
+            "quest_id": 2,
+            "attempted": []
+        },
+        {
+            "monster_id": 1,
+            "quest_id": 3,
+            "attempted": []
+        },
+        {
+            "monster_id": 2,
+            "quest_id": 2,
+            "attempted": []
+        },
+        {
+            "monster_id": 2,
+            "quest_id": 3,
+            "attempted": []
+        }
+    ]
+}

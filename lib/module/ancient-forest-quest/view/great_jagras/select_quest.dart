@@ -13,128 +13,188 @@ class selectQuest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.brown.shade400,
         title: Text(
           controller.Monster!.value.monsterName,
-          style: TextAppStyle.textsBodySuperLargeProminent(color: Colors.black),
+          style: TextAppStyle.textsBodySuperLargeProminent(color: Colors.white),
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              Image.asset(controller.Monster!.value.thumbnail!),
-              Column(
-                children: controller.Monster!.value.quests.map((quest) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(vertical: 25, horizontal: 40),
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                        color: Colors.brown.shade400,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
-                            spreadRadius: 6,
-                            blurRadius: 8,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ]),
-                    child: InkWell(
-                      onTap: () {
-                        QuestPopup(context, quest);
-                      },
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children:
-                                List.generate(quest.difficultyLevel, (index) {
-                              return Icon(
-                                Icons.star,
-                                color: quest.difficultyLevel == 1
-                                    ? Colors.blue.shade100
-                                    : Colors.red,
-                                size: 30,
-                              );
-                            }),
-                          ),
-                          SizedBox(height: 25),
-                          Text(
-                            quest.questType,
-                            style: TextAppStyle.textsBodyLargeProminent(
-                                color: Colors.white),
-                          ),
-                          SizedBox(height: 50),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Time limit :",
-                                  style: TextAppStyle.textsBodyMedium(
-                                      color: Colors.white),
-                                ),
-                                Text(
-                                  "${quest.timeLimit.toString()} Time card",
-                                  style: TextAppStyle.textsBodyMedium(
-                                      color: Colors.white),
-                                )
-                              ]),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Scoutfly Level:",
-                                  style: TextAppStyle.textsBodyMedium(
-                                      color: Colors.white),
-                                ),
-                                Text(
-                                  "${quest.scoutflyLevel[0]} - ${quest.scoutflyLevel[1]}",
-                                  style: TextAppStyle.textsBodyMedium(
-                                      color: Colors.white),
-                                )
-                              ]),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Starting Point:",
-                                  style: TextAppStyle.textsBodyMedium(
-                                      color: Colors.white),
-                                ),
-                                Row(
-                                  children: quest.startingPoint.map((point) {
-                                    return Row(
+      body: FutureBuilder(
+          future: controller.loadHunterData(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else {
+              return Center(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(15),
+                        margin: EdgeInsets.only(top: 25),
+                        width: 250,
+                        height: 250,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(25),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.25),
+                                spreadRadius: 2,
+                                blurRadius: 8,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child:
+                            Image.asset(controller.Monster!.value.thumbnail!),
+                      ),
+                      Column(
+                        children: controller.Monster!.value.quests.map((quest) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: 25, horizontal: 40),
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                                color: Colors.brown.shade400,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.25),
+                                    spreadRadius: 6,
+                                    blurRadius: 8,
+                                    offset: Offset(
+                                        0, 3), // changes position of shadow
+                                  ),
+                                ]),
+                            child: InkWell(
+                              onTap: () {
+                                QuestPopup(context, quest);
+                              },
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: List.generate(
+                                        quest.difficultyLevel, (index) {
+                                      return Icon(
+                                        Icons.star,
+                                        color: quest.difficultyLevel == 1
+                                            ? Colors.blue.shade100
+                                            : Colors.red,
+                                        size: 30,
+                                      );
+                                    }),
+                                  ),
+                                  SizedBox(height: 25),
+                                  Text(
+                                    quest.questType,
+                                    style: TextAppStyle.textsBodyLargeProminent(
+                                        color: Colors.white),
+                                  ),
+                                  SizedBox(height: 50),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          point.toString(),
+                                          "Time limit :",
                                           style: TextAppStyle.textsBodyMedium(
                                               color: Colors.white),
                                         ),
-                                        point != quest.startingPoint.last
-                                            ? Text(
-                                                " , ",
-                                                style: TextAppStyle
-                                                    .textsBodyMedium(
-                                                        color: Colors.white),
-                                              )
-                                            : SizedBox.shrink(),
-                                      ],
-                                    );
-                                  }).toList(),
-                                )
-                              ])
-                        ],
-                      ),
-                    ),
-                  );
-                }).toList(),
-              )
-            ],
-          ),
-        ),
-      ),
+                                        Text(
+                                          "${quest.timeLimit.toString()} Time card",
+                                          style: TextAppStyle.textsBodyMedium(
+                                              color: Colors.white),
+                                        )
+                                      ]),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Scoutfly Level:",
+                                          style: TextAppStyle.textsBodyMedium(
+                                              color: Colors.white),
+                                        ),
+                                        Text(
+                                          "${quest.scoutflyLevel[0]} - ${quest.scoutflyLevel[1]}",
+                                          style: TextAppStyle.textsBodyMedium(
+                                              color: Colors.white),
+                                        )
+                                      ]),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Attempted:",
+                                          style: TextAppStyle.textsBodyMedium(
+                                              color: Colors.white),
+                                        ),
+                                        Obx(() {
+                                          int attempted = 0;
+                                          for (var quest2 in controller
+                                              .hunterData
+                                              .value
+                                              .attemptedQuest) {
+                                            if (quest2.monsterId ==
+                                                    controller
+                                                        .monster_select.value &&
+                                                quest2.questId ==
+                                                    quest.questId) {
+                                              // แสดงผล attempted ของเควสนี้
+
+                                              attempted =
+                                                  quest2.attempted.length;
+                                            }
+                                          }
+                                          return Text(
+                                            attempted.toString(),
+                                            style: TextAppStyle.textsBodyMedium(
+                                                color: Colors.white),
+                                          );
+                                        })
+                                        // Row(
+                                        //   children:
+                                        //       quest.startingPoint.map((point) {
+                                        //     return Row(
+                                        //       children: [
+                                        //         Text(
+                                        //           point.toString(),
+                                        //           style: TextAppStyle
+                                        //               .textsBodyMedium(
+                                        //                   color: Colors.white),
+                                        //         ),
+                                        //         point !=
+                                        //                 quest.startingPoint.last
+                                        //             ? Text(
+                                        //                 " , ",
+                                        //                 style: TextAppStyle
+                                        //                     .textsBodyMedium(
+                                        //                         color: Colors
+                                        //                             .white),
+                                        //               )
+                                        //             : SizedBox.shrink(),
+                                        //       ],
+                                        //     );
+                                        //   }).toList(),
+                                        // )
+                                      ])
+                                ],
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      )
+                    ],
+                  ),
+                ),
+              );
+            }
+          }),
     );
   }
 
@@ -143,65 +203,118 @@ class selectQuest extends StatelessWidget {
     controller.quest_select_starting_point.value =
         quest.startingPoint.first; // ค่าเริ่มต้นเป็นจุดแรก
 
+    controller.quest_select.value = quest.questId;
+
+    RxList<int> Attempted_Set = <int>[].obs;
+
+    // อัปเดต Attempted_Set ภายนอก Obx ก่อนแสดง Dialog
+    for (var QS in quest.startingPoint) {
+      Attempted_Set.add(QS); // เก็บค่า Starting Point
+    }
+
+    for (var Hunter in controller.hunterData.value.attemptedQuest) {
+      for (var attempt in Hunter.attempted) {
+        Attempted_Set.remove(attempt); // ลบค่าที่ตรงกัน
+      }
+    }
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            backgroundColor: Colors.brown.shade400,
-            child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(quest.difficultyLevel, (index) {
-                      return Icon(
-                        Icons.star,
-                        color: quest.difficultyLevel == 1
-                            ? Colors.blue.shade100
-                            : Colors.red,
-                        size: 30,
-                      );
-                    }),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    quest.questType,
-                    style: TextAppStyle.textsBodyLargeProminent(
-                        color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Obx(() => Text(
-                        "เลือกจุดเริ่มต้นสำรวจ: ${controller.quest_select_starting_point.value}",
-                        style:
-                            TextAppStyle.textsBodyMedium(color: Colors.white),
-                      )),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Obx(() => Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children:
-                            List.generate(quest.startingPoint.length, (index) {
-                          return TextButton(
-                            onPressed: () {
-                              controller.quest_select_starting_point.value =
-                                  quest.startingPoint[index];
-                              //Navigator.pop(context);
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          backgroundColor: Colors.brown.shade400,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(quest.difficultyLevel, (index) {
+                    return Icon(
+                      Icons.star,
+                      color: quest.difficultyLevel == 1
+                          ? Colors.blue.shade100
+                          : Colors.red,
+                      size: 30,
+                    );
+                  }),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Text(
+                  quest.questType,
+                  style:
+                      TextAppStyle.textsBodyLargeProminent(color: Colors.white),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Obx(() {
+                  // แสดงผลจำนวนรอบที่เหลือ
+                  return Text(
+                    ":จำนวนรอบที่สามารถออกสำรวจได้:\n${Attempted_Set.length}",
+                    style: TextAppStyle.textsBodyMedium(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  );
+                }),
+                SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        Obx(() => Attempted_Set.isNotEmpty
+                            ? TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  controller.getDialogById(Attempted_Set.first,
+                                      controller.monster_select.value);
+                                  controller.Scoutfly_level.value = [
+                                    quest.scoutflyLevel[0].toString(),
+                                    quest.scoutflyLevel[1].toString()
+                                  ];
+                                  controller.quest_select_starting_point.value =
+                                      Attempted_Set.first;
+                                  print(controller.Scoutfly_level.value);
+                                  Get.toNamed(Routes.GetheringPhase);
+                                },
+                                style: TextButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 10),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      side: BorderSide(
+                                        color: Colors.white,
+                                      )),
+                                ),
+                                child: Text(
+                                  "เริ่มออกสำรวจ (Gethering Phase)",
+                                  style: TextAppStyle.textsBodyLargeProminent(
+                                      color: Colors.brown.shade400),
+                                ))
+                            : SizedBox.shrink()),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextButton(
+                            onPressed: () async {
+                              Navigator.pop(context);
+                              await controller.resetAttemptedQuest(
+                                  controller.monster_select.value,
+                                  quest.questId);
                             },
                             style: TextButton.styleFrom(
-                              backgroundColor: controller
-                                          .quest_select_starting_point.value ==
-                                      quest.startingPoint[index]
-                                  ? Colors.white
-                                  : Colors.brown.shade400,
-                              padding: EdgeInsets.symmetric(vertical: 10),
+                              backgroundColor: Colors.white,
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 10),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   side: BorderSide(
@@ -209,55 +322,18 @@ class selectQuest extends StatelessWidget {
                                   )),
                             ),
                             child: Text(
-                              quest.startingPoint[index].toString(),
-                              style: TextAppStyle.textsBodyMedium(
-                                  color: !(controller
-                                              .quest_select_starting_point
-                                              .value ==
-                                          quest.startingPoint[index])
-                                      ? Colors.white
-                                      : Colors.brown.shade400),
-                            ),
-                          );
-                        }),
-                      )),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            controller.getDialogById(
-                                controller.quest_select_starting_point.value,
-                                controller.monster_select.value);
-                            controller.Scoutfly_level.value = [
-                              quest.scoutflyLevel[0].toString(),
-                              quest.scoutflyLevel[1].toString()
-                            ];
-                            print(controller.Scoutfly_level.value);
-                            Get.toNamed(Routes.GetheringPhase);
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 10),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                side: BorderSide(
-                                  color: Colors.white,
-                                )),
-                          ),
-                          child: Text(
-                            "เริ่มออกสำรวจ (Gethering Phase)",
-                            style: TextAppStyle.textsBodyLargeProminent(
-                                color: Colors.brown.shade400),
-                          ))
-                    ],
-                  )
-                ])));
+                              "Reset Quest",
+                              style: TextAppStyle.textsBodyLargeProminent(
+                                  color: Colors.brown.shade400),
+                            ))
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        );
       },
     );
   }
