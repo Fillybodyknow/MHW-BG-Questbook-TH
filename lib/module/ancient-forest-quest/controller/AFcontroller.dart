@@ -21,6 +21,8 @@ class Afcontroller extends GetxController {
   RxList<String> Scoutfly_level = <String>[].obs;
   RxInt quest_select = 0.obs;
 
+  RxBool isShowConsequences = true.obs;
+
   Rx<DialogModel> dialog_select = DialogModel(
           actions: [], consequences: "", dialogId: 0, title: "", subtitle: "")
       .obs;
@@ -82,9 +84,10 @@ class Afcontroller extends GetxController {
     // แปลง JSON ที่อ่านได้เป็น HunterDataModel และเก็บใน Rx
     Map<String, dynamic> jsonMap = jsonDecode(jsonString);
     hunterData.value = HunterDataModel.fromJson(jsonMap);
+    print(monster_select.value);
     for (var attemp in hunterData.value.attemptedQuest) {
       print(
-          "MosnterID ${attemp.monsterId}\nQuestID ${attemp.questId}\nAttempted ${attemp.attempted}");
+          "{\nMosnterID ${attemp.monsterId}\nQuestID ${attemp.questId}\nAttempted ${attemp.attempted}\n}");
     }
   }
 

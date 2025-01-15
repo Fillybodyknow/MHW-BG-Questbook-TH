@@ -71,6 +71,7 @@ class selectQuest extends StatelessWidget {
                                 ]),
                             child: InkWell(
                               onTap: () {
+                                controller.isShowConsequences.value = true;
                                 QuestPopup(context, quest);
                               },
                               child: Column(
@@ -213,8 +214,11 @@ class selectQuest extends StatelessWidget {
     }
 
     for (var Hunter in controller.hunterData.value.attemptedQuest) {
-      for (var attempt in Hunter.attempted) {
-        Attempted_Set.remove(attempt); // ลบค่าที่ตรงกัน
+      if (Hunter.monsterId == controller.monster_select.value &&
+          Hunter.questId == quest.questId) {
+        for (var attempted in Hunter.attempted) {
+          Attempted_Set.remove(attempted);
+        }
       }
     }
 
@@ -325,7 +329,36 @@ class selectQuest extends StatelessWidget {
                               "Reset Quest",
                               style: TextAppStyle.textsBodyLargeProminent(
                                   color: Colors.brown.shade400),
-                            ))
+                            )),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        Obx(() {
+                          // แสดงผลจำนวนรอบที่เหลือ
+                          return InkWell(
+                            onTap: () {
+                              controller.isShowConsequences.value =
+                                  !controller.isShowConsequences.value;
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  controller.isShowConsequences.value
+                                      ? Icons.check_box_outline_blank_sharp
+                                      : Icons.check_box,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  "ซ่อนผลที่ตามมาจากการเลือกเส้นทาง",
+                                  style: TextAppStyle.textsBodyMedium(
+                                      color: Colors.white60),
+                                  textAlign: TextAlign.center,
+                                )
+                              ],
+                            ),
+                          );
+                        }),
                       ],
                     )
                   ],

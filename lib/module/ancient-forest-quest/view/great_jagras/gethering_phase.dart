@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mhw_quest_book/module/ancient-forest-quest/controller/AFcontroller.dart';
+import 'package:mhw_quest_book/module/ancient-forest-quest/model/AFmodel.dart';
 import 'package:mhw_quest_book/utility/fonts/text_style.dart';
 
 class GetheringPhase extends StatelessWidget {
@@ -102,8 +103,9 @@ class GetheringPhase extends StatelessWidget {
                                   controller.quest_select_starting_point.value);
                               Get.back();
                             } else {
-                              controller.getDialogById(action.pathToDialog!,
-                                  controller.monster_select.value);
+                              ConsequencesPopup(context, action);
+                              // controller.getDialogById(action.pathToDialog!,
+                              //     controller.monster_select.value);
                             }
                           },
                           child: Container(
@@ -145,12 +147,21 @@ class GetheringPhase extends StatelessWidget {
                                         action.title!,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            color: Colors.white70,
+                                            color: !controller
+                                                    .isShowConsequences.value
+                                                ? Colors.white
+                                                : Colors.white70,
                                             fontWeight: FontWeight.w600),
                                       ),
                                 //SizedBox(height: 5),
-                                action.consequences == "" ||
-                                        action.consequences == null
+                                ((action.consequences == "" ||
+                                                action.consequences == null) ||
+                                            !controller
+                                                .isShowConsequences.value) &&
+                                        !controller
+                                            .Monster!.value.dialogHuntingPhase
+                                            .contains(controller
+                                                .dialog_select.value.dialogId)
                                     ? SizedBox.shrink()
                                     : Text(
                                         action.consequences!,
@@ -256,5 +267,76 @@ class GetheringPhase extends StatelessWidget {
             ),
           )),
     );
+  }
+
+  void ConsequencesPopup(BuildContext context, ActionModel action) {
+    // controller.getDialogById(action.pathToDialog!,
+    //     controller.monster_select.value);
+
+    String consequences = "";
+
+    if (action.consequences == null || action.consequences == "") {
+      consequences = "ไม่มีอะไรเกิดขึ้น";
+    } else {
+      consequences = action.consequences!;
+    }
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              backgroundColor: Colors.brown.shade400,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "ผลลัพธ์ของเส้นทาง",
+                      //textAlign: TextAlign.center,
+                      style: TextAppStyle.textsBodyLargeProminent(
+                          color: Colors.white),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
+                      width: double.infinity,
+                      child: Text(
+                        consequences,
+                        textAlign: TextAlign.center,
+                        style: TextAppStyle.textsBodyLargeProminent(
+                            color: Colors.white),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    TextButton(
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                              vertical: 10,
+                              horizontal: 20,
+                            )),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          controller.getDialogById(action.pathToDialog!,
+                              controller.monster_select.value);
+                        },
+                        child: Text(
+                          "ไปต่อ",
+                          style: TextAppStyle.textsBodyLargeProminent(
+                              color: Colors.brown.shade400),
+                        ))
+                  ],
+                ),
+              ));
+        });
   }
 }
