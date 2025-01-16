@@ -47,8 +47,31 @@ class Afcontroller extends GetxController {
 
   Future<File> get _localFile async {
     final path = await _localPath;
-    print(path.toString());
+    copyFileToDownloads();
     return File('$path/hunter-save5.json');
+  }
+
+  Future<void> copyFileToDownloads() async {
+    try {
+      // ดึง path ของโฟลเดอร์สำหรับจัดเก็บไฟล์ภายในแอป
+      final directory = await getApplicationDocumentsDirectory();
+      final filePath = '${directory.path}/hunter-save5.json';
+
+      // ดึง path ของโฟลเดอร์ Downloads
+      final externalDirectory = await getExternalStorageDirectory();
+      final newFilePath = '${externalDirectory!.path}/hunter-save5.json';
+
+      // คัดลอกไฟล์ไปยังโฟลเดอร์ Downloads
+      final file = File(filePath);
+      if (await file.exists()) {
+        await file.copy(newFilePath);
+        print("File copied to: $newFilePath");
+      } else {
+        print("File not found");
+      }
+    } catch (e) {
+      print("Error copying file: $e");
+    }
   }
 
   Future<File> writeHunterData(String jsonString) async {

@@ -17,6 +17,7 @@ class GetheringPhase extends StatelessWidget {
           style: TextAppStyle.textsBodySuperLargeProminent(color: Colors.white),
         ),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       backgroundColor: const Color.fromARGB(255, 241, 217, 209),
       body: Obx(() => Center(
@@ -324,8 +325,15 @@ class GetheringPhase extends StatelessWidget {
                               vertical: 10,
                               horizontal: 20,
                             )),
-                        onPressed: () {
+                        onPressed: () async {
                           Navigator.pop(context);
+                          if (controller.Monster!.value.dialogHuntingPhase
+                              .contains(action.pathToDialog!)) {
+                            await controller.updateAttemptedQuest(
+                                controller.monster_select.value,
+                                controller.quest_select.value,
+                                controller.quest_select_starting_point.value);
+                          }
                           controller.getDialogById(action.pathToDialog!,
                               controller.monster_select.value);
                         },
