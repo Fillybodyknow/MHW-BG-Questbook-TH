@@ -3,4 +3,5 @@ class Routes {
   static const String Ancientforest = '/ancient_forest';
   static const String SelectQuest = '/select_quest';
   static const String GetheringPhase = '/gethering_phase';
+  static const String Campaign = '/campaign';
 }

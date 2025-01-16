@@ -27,7 +27,7 @@ class Afcontroller extends GetxController {
           actions: [], consequences: "", dialogId: 0, title: "", subtitle: "")
       .obs;
 
-  Future<void> loadMonstersData() async {
+  Future<void> loadMonstersAncientForestData() async {
     // โหลดไฟล์ JSON จาก asset
     String jsonString =
         await rootBundle.loadString('assets/files/ancient-quest-book.json');

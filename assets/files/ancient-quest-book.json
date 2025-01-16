@@ -2289,7 +2289,7 @@
             {
                 "quest_id": 3,
                 "quest_type": "Tempered Investigation Quest",
-                "difficulty_level": 3,
+                "difficulty_level": 4,
                 "time_limit": 45,
                 "scoutfly_level": [4, 7],
                 "starting_point": [2,3,4,5]
@@ -2997,6 +2997,730 @@
                         "required_dialog": "",
                         "title": "",
                         "consequences": "นักล่าทุกคนได้รับความเสียหาย 1 หน่วย เปิดเผยโทเค็นรอยเท้าทั้งหมด ตรวจสอบ Scoutfly level, และเริ่มต้น hunting phase.",
+                        "PathToDialog": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "monster_id": 5,
+        "monster_name": "Azure Rathalos",
+        "thumbnail": "assets/img/azure_rathalos_Icon.png",
+        "special_attack_card": [
+            "Fire Spin",
+            "Fireball",
+            "Talon Dive"
+        ],
+        "dialog_hunting_phase": [31,32,33,34],
+        "quest": [
+            {
+                "quest_id": 1,
+                "quest_type": "Assigned Quest",
+                "difficulty_level": 1,
+                "time_limit": 40,
+                "scoutfly_level": [2, 5],
+                "starting_point": [1]
+            },
+            {
+                "quest_id": 2,
+                "quest_type": "Investigation Quest",
+                "difficulty_level": 2,
+                "time_limit": 40,
+                "scoutfly_level": [3, 6],
+                "starting_point": [2,3,4,5]
+            },
+            {
+                "quest_id": 3,
+                "quest_type": "Tempered Investigation Quest",
+                "difficulty_level": 4,
+                "time_limit": 45,
+                "scoutfly_level": [4, 7],
+                "starting_point": [2,3,4,5]
+            }
+        ],
+        "quest_dialogs": [
+            {
+                "dialog_id": 1,
+                "title": "หากเริ่มการผจญภัยที่นี้, ได้รับยา 1 ขวด",
+                "subtitle": "ป่าลึกกลายเป็นดินแดนล่าของ Azure Rathalos สัตว์ร้ายที่รวดเร็วและคล่องแคล่วกว่าเผ่าพันธุ์ญาติของมัน มันเลี้ยวลัดผ่านยอดไม้ บินโฉบลงมาจากท้องฟ้าพร้อมกับคอยติดตามเหยื่อจากเบื้องบน ด้วยความอดทนที่รอจนถึงวินาทีสุดท้าย แล้วพุ่งลงมาอย่างสายฟ้าฟาดจากเมฆพายุ\n\nไม่มีอะไรจะหนีพ้นจากกรงเล็บของ Azure Rathalos หรือความหิวโหยไม่รู้จบของมัน และตอนนี้ คุณคือผู้ล่า...ใครสักคนต้องจัดการมัน คุณคิดเช่นนั้น ขอให้โชคดี!\n\nคุณจะตามล่ามันด้วยวิธีใด? มีสองทางเลือก...คุณสามารถติดตามรอยมันผ่านป่าและเข้าจู่โจมอย่างไม่ให้ทันตั้งตัว หรือคุณจะซ่อนตัวและดักมันด้วยกับดักที่เตรียมไว้?",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เวลาน้อยลงทุกที – ออกเดินทางเดี๋ยวนี้!",
+                        "consequences": "นักล่าทุกคนได้รับ Ancient Bone 1 ชิ้น ได้รับ track token 1 ชิ้น ทิ้ง 1 time card",
+                        "PathToDialog": 24
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "ระมัดระวังและวางกับดัก",
+                        "consequences": "ทิ้ง Time card 8 ใบ",
+                        "PathToDialog": 31
+                    }
+                ]
+            },
+            {
+                "dialog_id": 2,
+                "title": "หากเริ่มการผจญภัยที่นี้, ได้รับยา 2 ขวด",
+                "subtitle": "เบื้องหน้าของคุณมีร่างไร้ชีวิตของ Rathalos นอนขวางอยู่ ซี่โครงของมันเผยออกสู่สายลม แต่โชคดีที่ถุง Inferno Sac ยังคงอยู่ในสภาพสมบูรณ์ อะไรกันที่ทำแบบนี้? แล้วเสียงกรีดร้องแหลมคมจากด้านบนก็ตอบคำถามของคุณ... Azure Rathalos! ความเร็วของมันทำให้ Rathalos ตัวนี้หมดสติ ไร้พลังจะตอบโต้ ขณะที่ศัตรูโหดร้ายได้ฟันเปิดรอยแผลลึกทิ้งไว้บนร่าง กรีดเนื้อของมันขณะยังมีชีวิต\n\nคุณต้องรีบเคลื่อนที่หากหวังจะไล่ตาม Azure Rathalos ทัน แต่ Inferno Sac ก็มีค่าพอที่จะหยุดเก็บ...แล้วจะทำอย่างไร?",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "ค้นหาของจากศพของ Azure Rathalos",
+                        "consequences": "นักล่าทุกคนได้รับ Inferno Sac 1 ชิ้น ทิ้ง 1 time card",
+                        "PathToDialog": 1
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "รีบเดินหน้าต่อไป ไม่มีเวลามากแล้ว!",
+                        "consequences": "ได้รับ track token 1 ชิ้น",
+                        "PathToDialog": 29
+                    },
+                    {
+                        "action_id": 3,
+                        "required_dialog": "",
+                        "title": "ระมัดระวังและวางกับดัก",
+                        "consequences": "ทิ้ง Time card 8 ใบ",
+                        "PathToDialog": 31
+                    }
+                ]
+            },
+            {
+                "dialog_id": 3,
+                "title": "หากเริ่มการผจญภัยที่นี้, ได้รับยา 1 ขวด",
+                "subtitle": "Azure Rathalos กำลังออกล่า พ่อค้าและนักเดินทางหายตัวไปเป็นระยะ หรือไม่ก็พบเพียงซากของสิ่งมีชีวิตที่ถูกย่อยบางส่วน และเช่นเคย คุณอยู่บนรอยทางของมัน\n\nคุณได้บังเอิญเจอที่ซึ่งเคยเป็นรังของมันมาก่อน แต่ตอนนี้ไม่ใช่อีกแล้ว มันใช้เวลานานที่นี่ ตั้งแต่เป็นลูกอ่อนจนเติบโตเป็นผู้ใหญ่ หรืออย่างน้อยก็ดูเหมือนจะเป็นเช่นนั้น แต่คุณมีเวลาพอจะสืบสวนรังนี้เพื่อหาเบาะแสของพฤติกรรม Azure Rathalos หรือไม่? หรือควรรีบไล่ตามมันทันทีโดยหวังว่าลางสังหรณ์ของคุณจะถูกต้อง?",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "สำรวจรัง",
+                        "consequences": "นักล่าทุกคนได้รับ Azure Rathalos Wingtalon 1 ชิ้น และ Azure Rathalos Shell 1 ชิ้น ทิ้ง 2 time card",
+                        "PathToDialog": 2
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "เริ่มออกไล่ล่า!",
+                        "consequences": "ได้รับ Track Token 1 อัน",
+                        "PathToDialog": 22
+                    },
+                    {
+                        "action_id": 3,
+                        "required_dialog": "",
+                        "title": "ระมัดระวังและวางกับดัก",
+                        "consequences": "ทิ้ง Time card 8 ใบ",
+                        "PathToDialog": 31
+                    }
+                ]
+            },
+            {
+                "dialog_id": 4,
+                "title": "หากเริ่มการผจญภัยที่นี้, ได้รับยา 2 ขวด",
+                "subtitle": "Azure Rathalos ที่คุณถูกส่งมาเพื่อจัดการได้รับบาดเจ็บอย่างหนักที่นี่ คุณไม่แน่ใจว่ามันไปสู้กับอะไรมา อาจจะเป็น Azure Rathalos ตัวอื่นหรือไม่ก็ Anjanath แต่ดูเหมือนว่ามันถูกเล่นงานอย่างหนัก มีเกล็ดฝังลึกลงในดินอ่อนเป็นระยะถึงหกนิ้ว และมีหางที่ขาดของ Azure Rathalos ยังคงกระตุกอยู่บนพื้นหญ้า นักล่าบางคนอาจจะรีบวิ่งตามรอยมันไปในตอนนี้ด้วยความอยากจับมัน แต่คุณไม่ใช่คนไร้เดียงสาแบบนั้น Azure Rathalos ที่บาดเจ็บอาจจะอันตรายยิ่งกว่าตัวที่สมบูรณ์เสียอีก เดินหน้าอย่างระมัดระวัง",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เราไม่มีเวลาให้เสียเปล่า!",
+                        "consequences": "ได้รับ Track Token 1 อัน",
+                        "PathToDialog": 7
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "เก็บทรัพยากรก่อนที่จะรีบเร่งไปข้างหน้าโดยไม่ทันคิด",
+                        "consequences": "ทิ้ง 1 Time card นักล่าทุกคนได้รับ Azure Rathalos tail 1 ชิ้น",
+                        "PathToDialog": 12
+                    },
+                    {
+                        "action_id": 3,
+                        "required_dialog": "",
+                        "title": "ระมัดระวังและวางกับดัก",
+                        "consequences": "ทิ้ง Time card 8 ใบ",
+                        "PathToDialog": 31
+                    }
+                ]
+            },
+            {
+                "dialog_id": 5,
+                "title": "หากเริ่มการผจญภัยที่นี้, ได้รับยา 1 ขวด",
+                "subtitle": "กลิ่นเนื้อที่ถูกเผา นั่นคือสิ่งที่คุณได้กลิ่น มันชวนให้นึกถึงครัวของ felyne ที่คุณเคยได้ยินมา แต่สิ่งนี้ไม่ใช่เนื้อย่างพอสุกและเสิร์ฟพร้อมสลัด แต่มันคือเนื้อที่ไหม้เกรียมเกาะอยู่บนโครงกระดูกที่ถูก Azure Rathalos โจมตีอย่างรุนแรง สัตว์ร้ายไม่อยู่ที่นี่แล้ว แต่คงไม่ได้ไปไกล...",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "ล่าหาเบาะแสใกล้ ๆ กับศพ",
+                        "consequences": "นักล่าทุกคนได้รับ Inferno Sac 1 ชิ้น",
+                        "PathToDialog": 4
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "ตามรอยต่อไป",
+                        "consequences": "นักล่าทุกคนได้รับ Warm Pelt 1 ชิ้น สับการ์ด Turf War ลงในกอง Time card.",
+                        "PathToDialog": 10
+                    },
+                    {
+                        "action_id": 3,
+                        "required_dialog": "",
+                        "title": "ระมัดระวังและวางกับดัก",
+                        "consequences": "ทิ้ง Time card 8 ใบ",
+                        "PathToDialog": 31
+                    }
+                ]
+            },
+            {
+                "dialog_id": 6,
+                "title": "",
+                "subtitle": "นั่นมันหรือเปล่า? ผ้าม่านของต้นไม้ที่อยู่ตรงหน้าคุณสั่นไหวเหมือนผิวน้ำที่ถูกปลาตัวใหญ่พุ่งผ่าน คุณค่อย ๆ หมอบลง ไม่แน่ใจว่า Azure Rathalos กำลังจะโจมตีคุณในอีกไม่กี่วินาที หรือเพียงแค่ลมที่พัดผ่านหลอกตาคุณ",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "เลือกได้เมื่อมีนักล่าสวมเกราะ Azure Rathalos อย่างน้อย 1 ชิ้น",
+                        "title": "เป็นเพียงสายลม สำรวจพื้นที่รอบ ๆ",
+                        "consequences": "ได้รับ token รอยติดตาม 1 ชิ้น ทิ้ง 1 time card",
+                        "PathToDialog": 30
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "อยู่เฉย ๆ ไม่เสี่ยงดีกว่า",
+                        "consequences": "ทิ้ง 1 time card",
+                        "PathToDialog": 34
+                    }
+                ]
+            },
+            {
+                "dialog_id": 7,
+                "title": "",
+                "subtitle": "ชิ้นส่วนของ Rathalos ที่ตายแล้ว ถูกทิ้งไว้โดย Azure Rathalos ที่อิ่มหนำสำราญ ขณะบินผ่านป่า การทิ้งซากของเหยื่อไปตามต้นไม้ทำให้การติดตามมันง่ายขึ้น แม้ว่าการเหยียบไปในเนื้อที่บดละเอียดอาจไม่ใช่ประสบการณ์ที่คุณชอบที่สุด...",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เก็บส่วนที่มีค่า",
+                        "consequences": "นักล่าทุกคนได้รับ Azure Rathalos Marrow 1 ชิ้น",
+                        "PathToDialog": 23
+                    },
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เมินซากและตามรอยต่อไป",
+                        "consequences": "ได้รับ track token 1 ชิ้น",
+                        "PathToDialog": 9
+                    }
+                ]
+            },
+            {
+                "dialog_id": 8,
+                "title": "",
+                "subtitle": "คุณเดินทางต่อไปในป่า สังเกตอากาศและพื้นปกคลุมด้วยต้นสนเพื่อหาสัญญาณของ Azure Rathalos แต่ดูเหมือนมันจะหลบหลีกคุณไปได้ อย่างน้อยก็ในตอนนี้...",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เดินทางต่อไปตามเส้นทางนี้",
+                        "consequences": "",
+                        "PathToDialog": 10
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "เบี่ยงไปในทิศทางใหม่ทั้งหมด",
+                        "consequences": "ได้รับ track token 1 ชิ้น",
+                        "PathToDialog": 13
+                    }
+                ]
+            },
+            {
+                "dialog_id": 9,
+                "title": "",
+                "subtitle": "คุณรู้สึกหมดแรง และ Azure Rathalos ยังคงอยู่ที่นั่น คุณได้ยินเสียงมันหลายครั้งแล้ว มันคำรามด้วยความโกรธเกรี้ยว ปีกของมันทำให้ยอดต้นไม้สั่นไหว คุณแทบจะเชื่อว่ามันกำลังล้อคุณ แต่บางทีอาจเป็นแค่ความบ้าคลั่งของการล่าเริ่มเข้ามากระทบจิตใจคุณ น่าจะเป็นแบบนั้น",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "นักล่าทุกคนได้รับ Azure Rathalos Tail 1 ชิ้น track token 1 ชิ้น",
+                        "PathToDialog": 13
+                    }
+                ]
+            },
+            {
+                "dialog_id": 10,
+                "title": "",
+                "subtitle": "ความเหนื่อยล้าเริ่มสะสม เป้ที่อยู่บนหลัง เกราะและอาวุธ กำลังทิ่มแทงไปที่เนื้อหนังของคุณในแบบที่ไม่เคยเป็นมาก่อนในตอนเช้า แหล่งโล่งที่คุณพบตัวเองอยู่ดูเหมือนจะปลอดภัยสำหรับป่านี้ คุณอาจจะตั้งแคมป์ที่นี่ แต่รอยตามมันยังคงเรียกร้องคุณ...",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เมินความเหนื่อยล้าในกระดูกของคุณและยังคงล่า",
+                        "consequences": "ได้รับ track token 1 ชิ้น",
+                        "PathToDialog": 28
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "เลือกได้เฉพาะเมื่อนักล่ามี Azure Rathalos Tail อย่างน้อย 1 ชิ้นในคลังของพวกเขา",
+                        "title": "หาที่พักสำหรับคืนนี้",
+                        "consequences": "นักล่าทุกคนฟื้นฟู 2 หน่วยชีวิต ทิ้ง time card 1 ใบ",
+                        "PathToDialog": 23
+                    }
+                ]
+            },
+            {
+                "dialog_id": 11,
+                "title": "",
+                "subtitle": "ซากศพหนึ่งนอนอยู่ข้างหน้า ถูกทำลายจนย่อยยับแทบจะไม่สามารถบอกได้เลยว่าสิ่งมีชีวิตนั้นเคยเป็นอะไร แต่คุณสามารถเห็นรอยเขี้ยวของ Azure Rathalos บนเนื้อที่ถูกบดขยี้ และการบวมของการหายใจไฟ อาจจะมีเบาะแสบางอย่างที่คุณสามารถค้นพบจากซากเนื้อนี้",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "ตรวจสอบเหยื่อที่ถูกกลืนกินให้ละเอียด",
+                        "consequences": "นักล่าทุกคนได้รับ Azure Rathalos scale 1 ชิ้น ทิ้ง time card 2 ใบ",
+                        "PathToDialog": 23
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "เลือกได้เฉพาะเมื่อนักล่ามี Azure Rathalos scale อย่างน้อย 1 ชิ้นในคลังของพวกเขา",
+                        "title": "เรารู้แล้วว่าใครฆ่ามัน - เดินหน้าต่อไป",
+                        "consequences": "ทิ้ง time card 1 ใบ",
+                        "PathToDialog": 30
+                    }
+                ]
+            },
+            {
+                "dialog_id": 12,
+                "title": "",
+                "subtitle": "Azure Rathalos ที่ได้รับบาดเจ็บ บินมาทางนี้แน่นอน มันไม่เร็วและคล่องแคล่วเหมือนเมื่อก่อน แต่ยังคงมีชีวิตอยู่ นั่นหมายความว่าคุณต้องตามมันไปต่อ",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เดินต่อไปตามเส้นทางนี้",
+                        "consequences": "ทิ้ง time card 1 ใบ นักล่าทุกคนได้รับ Azure Rathalos tail 1 ชิ้น",
+                        "PathToDialog": 17
+                    }
+                ]
+            },
+            {
+                "dialog_id": 13,
+                "title": "",
+                "subtitle": "ในที่สุด หลังจากการเดินทางที่ดูเหมือนจะไม่สิ้นสุดผ่านป่า คุณเห็นใบไม้ที่แตกหักในผืนป่าที่คุณจำได้ทันที นี่คือลำต้นที่ Azure Rathalos ทุ่มตัวลงไปสู่เหยื่อของมัน สัตว์ร้ายกลับมาแล้ว การล่ากลับมาเริ่มต้นใหม่อีกครั้ง!",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "ได้รับ track token 1 ชิ้น",
+                        "PathToDialog": 18
+                    }
+                ]
+            },
+            {
+                "dialog_id": 14,
+                "title": "",
+                "subtitle": "การปีนลงจากหน้าผาในตอนเช้า ถือเป็นการลงแรงที่คุ้มค่า เพราะแสงจากดวงอาทิตย์ใหม่ทำให้เห็นแร่ Machalite ที่คุณอาจจะพลาดไปหากคุณเสี่ยงเดินทางในความมืด",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "นักล่าทุกคนได้รับ Machalite ore 1 ชิ้น",
+                        "PathToDialog": 9
+                    }
+                ]
+            },
+            {
+                "dialog_id": 15,
+                "title": "",
+                "subtitle": "รังของ Azure Rathalos แน่นอนว่าไม่มีใครอยู่แล้ว ถูกทิ้งร้างไปแล้ว แต่มีอะไรบางอย่างในนั้นใช่ไหม? มันอาจจะเป็นกุญแจในการจับสัตว์ร้ายตัวนี้ เพียงแค่ต้องปีนขึ้นไปนิดหน่อย ไม่ยากเกินไปหรอก",
+                "consequences": "ทอยลูกเต๋า",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "หากทอยได้ 1-3 เลือกตัวเลือกนี้",
+                        "title": "นักล่าจะลื่นล้มและต้องปีนขึ้นใหม่",
+                        "consequences": "นักล่าทุกคนได้รับความเสียหาย 2 หน่วย ทิ้ง time card 2 ใบ",
+                        "PathToDialog": 21
+                    },
+                    {
+                        "action_id": 1,
+                        "required_dialog": "หากทอยได้ 4-6 เลือกตัวเลือกนี้",
+                        "title": "นักล่าจะปีนขึ้นไปได้โดยไม่บาดเจ็บ",
+                        "consequences": "ได้ track token 3 ชิ้น ทิ้ง time card 1 ใบ",
+                        "PathToDialog": 21
+                    }
+                ]
+            },
+            {
+                "dialog_id": 16,
+                "title": "",
+                "subtitle": "Azure Rathalos เป็นเป้าหมายที่ยากลำบาก มันเคลื่อนไหวตลอดเวลา หลบผ่านต้นไม้ก่อนที่คุณจะมีเวลาเตรียมอาวุธ แม้จะได้ยินเสียงปีกขนาดมหึมาหลายครั้ง แต่คุณยังไม่เห็นสัตว์ร้ายตัวนั้นจริงๆ",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เดินหน้าต่อเพื่อไล่ตาม Azure Rathalos ในป่า",
+                        "consequences": "ได้ track token 2 ชิ้น ทิ้ง time card 1 ใบ",
+                        "PathToDialog": 11
+                    }
+                ]
+            },
+            {
+                "dialog_id": 17,
+                "title": "",
+                "subtitle": "ยังไม่มีร่องรอยของ Azure Rathalos คุณส่ายหัวทั้งในความหงุดหงิดและความทึ่ง การที่จะจับมันให้ได้ถึงขนาดนี้ แม้จะบาดเจ็บจนเสียเลือดไปมาก ก็ถือเป็นความสามารถที่น่าทึ่ง และมันจะทำให้การต่อสู้กับมันยิ่งอันตรายมากขึ้น หากคุณสามารถจับมันได้",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เลือกเส้นทางใหม่ที่คุณพบ เส้นทางนี้เริ่มเย็นลง",
+                        "consequences": "ได้ track token 1 ชิ้น ทิ้ง time card 1 ใบ สับ Recovery card ลงในกอง time deck",
+                        "PathToDialog": 11
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "ยังคงตามเส้นทางเดิม",
+                        "consequences": "",
+                        "PathToDialog": 6
+                    }
+                ]
+            },
+            {
+                "dialog_id": 18,
+                "title": "",
+                "subtitle": "คุณได้ยินมันแล้ว สัตว์ร้ายตัวนั้นใกล้แค่เอื้อม จนคุณมั่นใจว่าคุณสามารถได้กลิ่นลมหายใจเหม็นๆ ของมัน คุณผลักกิ่งไม้ไปข้างหน้า หวังว่าจะได้เห็นสิ่งที่คุณตามล่าอย่างยาวนาน...",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "คุณพร้อมสำหรับการต่อสู้หรือยัง?",
+                        "consequences": "ได้ track token 1 ชิ้น",
+                        "PathToDialog": 32
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "ตัวเลือกนี้สามารถเลือกได้หากนักล่ามี Azure Rathalos plate อย่างน้อย 1 ชิ้นใน inventory",
+                        "title": "มีบางอย่างไม่ค่อยถูกต้อง ยืนหยัดที่ตำแหน่งนี้",
+                        "consequences": "",
+                        "PathToDialog": 33
+                    }
+                ]
+            },
+            {
+                "dialog_id": 19,
+                "title": "",
+                "subtitle": "มันใกล้เข้ามาแล้ว คุณรู้ดี คุณได้ไล่ล่ามันผ่านป่าแห่งนี้ สลับกันได้เปรียบและเสียเปรียบ แต่ตอนนี้... มันใกล้แล้ว ใกล้มาก",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "ได้ track token 1 ชิ้น",
+                        "PathToDialog": 31
+                    }
+                ]
+            },
+            {
+                "dialog_id": 20,
+                "title": "",
+                "subtitle": "มีแร่ที่เปิดเผยอยู่ ก้อนผลึกที่เปล่งประกายสะท้อนแสงแดดยามเย็น มันไม่ใช่ Azure Rathalos แต่ก็อย่างน้อยก็เป็นอะไรบางอย่างที่ทำให้คุณมั่นใจได้ว่า การออกสำรวจครั้งนี้ไม่ได้สูญเปล่า ได้เวลาเริ่มขุดแล้ว",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "แต่ละนักล่าได้รับ Fucium ore 1 ชิ้น ได้ track token 1 ชิ้น",
+                        "PathToDialog": 19
+                    }
+                ]
+            },
+            {
+                "dialog_id": 21,
+                "title": "",
+                "subtitle": "การเดินทางขึ้นยอดเขานั้นเหนื่อยล้า และเมื่อคุณถึงที่นั่น... ไม่มี Azure Rathalos ไม่เห็นแม้แต่ร่องรอยที่แสดงว่ามันเคยมาแถวนี้เมื่อไม่นานมานี้ อย่างน้อยยังมีแสงสว่างให้สอดส่องไปรอบๆ",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "แต่ละนักล่าได้รับ Boulder Bone 1 ชิ้น",
+                        "PathToDialog": 10
+                    }
+                ]
+            },
+            {
+                "dialog_id": 22,
+                "title": "",
+                "subtitle": "สัตว์ร้ายได้รับบาดเจ็บหรือเปล่า? หรือมันแค่ไม่สนใจว่ามีคนไล่ตาม? ไม่ว่าอย่างไรก็ตาม ร่องรอยที่มันทิ้งไว้ให้คุณตามนั้นชัดเจนจนแมวตาบอดยังสามารถติดตามได้",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "แต่ละนักล่าได้รับ Azure Rathalos Marrow 1 ชิ้น",
+                        "PathToDialog": 29
+                    }
+                ]
+            },
+            {
+                "dialog_id": 23,
+                "title": "",
+                "subtitle": "พักผ่อนจากการหยุดชั่วคราวในการล่า คุณเตรียมตัวสำหรับขั้นตอนต่อไปของการตามล่า",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "ได้รับ track token 1 ชิ้น",
+                        "PathToDialog": 14
+                    }
+                ]
+            },
+            {
+                "dialog_id": 24,
+                "title": "",
+                "subtitle": "การปีนหน้าผาเป็นกระบวนการที่ยากและใช้แรงมาก นกและแมลงบินไปมารอบตัวคุณ แต่เมื่อคุณไปถึงยอดเขา คุณก็สามารถเห็นป่าเบื้องล่างได้ชัดเจน Azure Rathalos เคยอยู่ที่นี่ คุณสามารถดมกลิ่นซัลเฟอร์จากลมหายใจของมัน และเห็นรอยจากกรงเล็บของมัน",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "รักษาความเร็วในการเดินทางต่อไป",
+                        "consequences": "ได้รับ 1 track token",
+                        "PathToDialog": 21
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "ศึกษาบริเวณรอบๆ",
+                        "consequences": "แต่ละนักล่าได้รับ 1 Azure Rathalos webbing ทิ้ง time card 2 ใบ",
+                        "PathToDialog": 15
+                    },
+                    {
+                        "action_id": 3,
+                        "required_dialog": "",
+                        "title": "ปีนขึ้นไปข้างบน หวังว่าจะพบรังของมัน",
+                        "consequences": "แต่ละนักล่าได้รับ 1 Carbalite ore ได้รับ track token 1 ชิ้น ทิ้ง time card 1 ใบ",
+                        "PathToDialog": 16
+                    }
+                ]
+            },
+            {
+                "dialog_id": 25,
+                "title": "",
+                "subtitle": "Azure Rathalos กรีดร้อง และบินวนรอบตัวคุณ มันกำลังจับตามองคุณหรือมันเห็นเหยื่ออื่นในป่าลึกกว่านี้? คุณไม่สามารถบอกได้ แต่เพื่อความปลอดภัย คุณตัดสินใจหลบเข้าไปใต้ร่มเงาของต้นไม้ขณะที่มันเกาท้องฟ้าด้วยกรงเล็บของมัน",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "หนามแหลมตกลงมาเหมือนฝนอันตรายจากข้างบน ถูกดึงออกจากเปลือกไม้หนา",
+                        "consequences": "แต่ละนักล่าได้รับ 1 Azure Rathalos Wingtalon ได้รับ track token 1 ชิ้น",
+                        "PathToDialog": 28
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "บางสิ่งตกลงมาจากข้างบน คุณรีบไปจับมัน",
+                        "consequences": "แต่ละนักล่าได้รับ 1 Dragonvein Drystal",
+                        "PathToDialog": 8
+                    }
+                ]
+            },
+            {
+                "dialog_id": 26,
+                "title": "",
+                "subtitle": "มันหายไปไหน? คุณเกือบจะถึงมันแล้ว คุณมั่นใจว่าคุณอยู่ใกล้มาก คุณยังถืออาวุธไว้พร้อม ขยับร่างกายรู้สึกถึงความตึงเครียดในกล้ามเนื้อ ความตื่นเต้นที่สะสมและยังไม่ได้ปลดปล่อย... คุณพยายามสงบจิตใจ และเดินหน้าต่อในการล่าครั้งนี้",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "...",
+                        "consequences": "",
+                        "PathToDialog": 9
+                    }
+                ]
+            },
+            {
+                "dialog_id": 27,
+                "title": "",
+                "subtitle": "เลือดถูกกระจายไปทั่วที่โล่ง และเนื้อในท้องของสัตว์ที่ถูกฆ่าถูกกระเซ็นไปทั่วหญ้าที่แห้งแล้ง กลิ่นของซากศพแทบจะทนไม่ได้ แต่นั่นอาจจะมีสิ่งมีค่าซ่อนอยู่ในกองเนื้อเน่าเหม็นนั้น",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "คุณจะจริงจังกับการล้วงหากินจากซากศพนี้หรือ? แน่นอนว่าไม่",
+                        "consequences": "ได้รับ 1 track token.",
+                        "PathToDialog": 31
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "ข้อมูลทุกชิ้นอาจมีประโยชน์!",
+                        "consequences": "นักล่าทุกคนทอยลูกเต๋าหนึ่งครั้งจากตารางต่อไปนี้:\n1-2 ได้รับ Dragonite ore 1 ชิ้น\n3-4 ได้รับ Firecell Stone 1 ก้อน\n5-6 ได้รับ Azure Rathalos Shell 1 ชิ้น\nทิ้ง 1 Time card\nสับการ์ด Fumbled Carving กลับเข้าไปในกอง Time card.",
+                        "PathToDialog": 19
+                    }
+                ]
+            },
+            {
+                "dialog_id": 28,
+                "title": "",
+                "subtitle": "ยามเย็นเริ่มคล้อยลงขณะที่คุณเดินกลับลงสู่พื้นป่า Azure Rathalos ยังคงอยู่เหนือคุณที่ไหนสักแห่ง มันช่างฉลาดเกินกว่าจะไม่รู้ว่ามีอะไรบางอย่างกำลังตามมันอยู่ ขณะที่คุณปีนลงไป คุณพบเหยื่ออีกตัวหนึ่งของสัตว์ร้าย แต่มันก็ยังมีบางสิ่งที่อาจได้จากที่นี่...",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "เพิกเฉยไปเถอะ Azure Rathalos คือเป้าหมายของคุณ",
+                        "consequences": "รับ 1 track token",
+                        "PathToDialog": 20
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "",
+                        "title": "มันคุ้มค่าที่จะเก็บไว้",
+                        "consequences": "นักล่าทุกคนได้รับ Wingdrake Hide 1 ชิ้น.",
+                        "PathToDialog": 27
+                    }
+                ]
+            },
+            {
+                "dialog_id": 29,
+                "title": "",
+                "subtitle": "ทรายใต้เท้าของคุณ เสียงคลื่นที่กระทบชายฝั่ง เสียงนกที่ร้องอยู่เหนือฟ้า มันช่างงดงามจนคุณเริ่มสงสัยว่าควรจะยังคงล่าสัตว์ต่อไปดีไหม คุณอาจจะนั่งอยู่ที่นี่ กินอาหารของคุณ และเพลิดเพลินกับแสงแดด แล้วจู่ๆ ก็มีบางสิ่งในน้ำดึงความสนใจของคุณ... เปลือกของ Azure Rathalos สัตว์ร้ายนั้นเคยอยู่ที่นี่ และมันเพิ่งจะไป",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "ดำน้ำลงไปและเก็บเปลือกนั้นขึ้นมา",
+                        "consequences": "นักล่าทุกคนได้รับ Coral Crystal 1 ชิ้น และ Azure Rathalos Shell 1 ชิ้น.",
+                        "PathToDialog": 10
+                    },
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "กลับไปที่การล่าทันที",
+                        "consequences": "นักล่าทุกคนได้รับ Warm Pelt 1 ชิ้น. รับ 1 track token.",
+                        "PathToDialog": 7
+                    }
+                ]
+            },
+            {
+                "dialog_id": 30,
+                "title": "",
+                "subtitle": "เกล็ดที่คุณเก็บได้บ่งชี้ว่า Azure Rathalos ได้รับบาดเจ็บ; มันถูกฉีกขาดออกไปในระหว่างการต่อสู้ที่ดุเดือด บริเวณพื้นดินมีรอยเลือดกระเซ็นกระจายไปทั่วใบไม้และดิน การล่าสัตว์ที่ได้รับบาดเจ็บเป็นเหมือนดาบสองคม; พวกมันอาจจะสู้ไม่ได้นาน แต่ก็จะสู้ด้วยความดุร้ายยิ่งขึ้น...",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "หากทอยได้ 1-3 ให้เลือกตัวเลือกนี้",
+                        "title": "ตามรอยเลือดไป\nได้รับ 2 track tokens\nทิ้ง Time card 1 ใบและทอยลูกเต๋า",
+                        "consequences": "",
+                        "PathToDialog": 26
+                    },
+                    {
+                        "action_id": 2,
+                        "required_dialog": "หากทอยได้ 4-6 ให้เลือกตัวเลือกนี้",
+                        "title": "",
+                        "consequences": "ลดค่าเลือดของ Azure Rathalos ตามจำนวนที่ทอยได้.",
+                        "PathToDialog": 25
+                    },
+                    {
+                        "action_id": 3,
+                        "required_dialog": "",
+                        "title": "ค้นหาบริเวณนี้",
+                        "consequences": "นักล่าทุกคนได้รับ Quality Bone 1 ชิ้น และ Monster Bone Small 1 ชิ้น.",
+                        "PathToDialog": 26
+                    }
+                ]
+            },
+            {
+                "dialog_id": 31,
+                "title": "",
+                "subtitle": "เสียงกรีดร้องที่ดังสนั่นฉีกท้องฟ้าเหนือหัวคุณ เสียงร้องของ Azure Rathalos ผสมผสานกับเสียงลมที่พัดกระโชกขณะที่มันโฉบลงมาหาคุณ มีแสงสะท้อนของกรงเล็บและฟัน รวมทั้งลมหายใจไฟที่พุ่งออกจากปากของมัน... ถึงเวลาต่อสู้แล้ว",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "",
+                        "consequences": "ได้รับ 2 track token เปิดเผยโทเค็นรอยเท้าทั้งหมด ตรวจสอบ Scoutfly level, และเริ่มต้น hunting phase.",
+                        "PathToDialog": 0
+                    }
+                ]
+            },
+            {
+                "dialog_id": 32,
+                "title": "",
+                "subtitle": "เสียงเคี้ยวกินนั้นไม่อาจผิดพลาดได้; เสียงน้ำลายและเนื้อที่ถูกฉีกขาดอย่างไม่หยุดยั้ง Azure Rathalos กำลังกินอิ่มกับเหยื่อที่มันล่ามาใหม่ มันฉีกชิ้นเนื้อออกมาแล้วขว้างขึ้นไปในอากาศ\nตอนนี้คือโอกาสของคุณ อย่าปล่อยให้มันหนีไป!",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "",
+                        "consequences": "ทิ้ง Time card 2 ใบ เปิดเผยโทเค็นรอยเท้าทั้งหมด ตรวจสอบ Scoutfly level, และเริ่มต้น hunting phase.",
+                        "PathToDialog": 0
+                    }
+                ]
+            },
+            {
+                "dialog_id": 33,
+                "title": "",
+                "subtitle": "หลังคาป่าค่อยๆ โค้งลงแล้วก็แตกออก Azure Rathalos ตกลงมาข้างหน้าคุณ ดวงตาของมันจ้องมองคุณเหมือนมีดที่เฉือนเข้าที่ใจคุณ ในความพยายามที่จะหลบหนี คุณตกลงไปผ่านพงหญ้า เกือบจะรอดจากเปลวไฟที่ลุกโชนพุ่งผ่านตัวคุณ",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "",
+                        "consequences": "เปิดเผยโทเค็นรอยเท้าทั้งหมด ตรวจสอบ Scoutfly level, และเริ่มต้น hunting phase.",
+                        "PathToDialog": 0
+                    }
+                ]
+            },
+            {
+                "dialog_id": 34,
+                "title": "",
+                "subtitle": "คุณไม่ผิดเลย Azure Rathalos ซ่อนตัวอยู่หลังต้นไม้ พยายามหาช่วงเวลาพักฟื้น แต่การติดตามอย่างไม่ย่อท้อของคุณได้ปลุกความโกรธของมัน ตอนนี้มันพุ่งตัวขึ้นสู่ท้องฟ้าและใช้กระแสลมหมุนตัว วงปีกของมันเปิดออกจนสุดขีด และเสียงคำรามเหมือนภูเขาถล่มทำให้สติของคุณแทบสะเทือน เตรียมพร้อมต่อสู้เพื่อชีวิตของคุณ!",
+                "consequences": "",
+                "actions": [
+                    {
+                        "action_id": 1,
+                        "required_dialog": "",
+                        "title": "",
+                        "consequences": "ได้รับ 1 track token เปิดเผยโทเค็นรอยเท้าทั้งหมด ตรวจสอบ Scoutfly level, และเริ่มต้น hunting phase.",
                         "PathToDialog": 0
                     }
                 ]

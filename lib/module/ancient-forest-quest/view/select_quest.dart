@@ -16,7 +16,7 @@ class selectQuest extends StatelessWidget {
         backgroundColor: Colors.brown.shade400,
         title: Text(
           controller.Monster!.value.monsterName,
-          style: TextAppStyle.textsBodySuperLargeProminent(color: Colors.white),
+          style: TextAppStyle.textsHeaderLargeProminent(color: Colors.white),
         ),
         centerTitle: true,
       ),
@@ -232,138 +232,142 @@ class selectQuest extends StatelessWidget {
           backgroundColor: Colors.brown.shade400,
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(quest.difficultyLevel, (index) {
-                    return Icon(
-                      Icons.star,
-                      color: quest.difficultyLevel == 1
-                          ? Colors.blue.shade100
-                          : Colors.red,
-                      size: 30,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(quest.difficultyLevel, (index) {
+                      return Icon(
+                        Icons.star,
+                        color: quest.difficultyLevel == 1
+                            ? Colors.blue.shade100
+                            : Colors.red,
+                        size: 30,
+                      );
+                    }),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    quest.questType,
+                    style: TextAppStyle.textsBodyLargeProminent(
+                        color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Obx(() {
+                    // แสดงผลจำนวนรอบที่เหลือ
+                    return Text(
+                      ":จำนวนรอบที่สามารถออกสำรวจได้:\n${Attempted_Set.length}",
+                      style: TextAppStyle.textsBodyMedium(color: Colors.white),
+                      textAlign: TextAlign.center,
                     );
                   }),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Text(
-                  quest.questType,
-                  style:
-                      TextAppStyle.textsBodyLargeProminent(color: Colors.white),
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Obx(() {
-                  // แสดงผลจำนวนรอบที่เหลือ
-                  return Text(
-                    ":จำนวนรอบที่สามารถออกสำรวจได้:\n${Attempted_Set.length}",
-                    style: TextAppStyle.textsBodyMedium(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  );
-                }),
-                SizedBox(
-                  height: 40,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        Obx(() => Attempted_Set.isNotEmpty
-                            ? TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                  controller.getDialogById(Attempted_Set.first,
-                                      controller.monster_select.value);
-                                  controller.Scoutfly_level.value = [
-                                    quest.scoutflyLevel[0].toString(),
-                                    quest.scoutflyLevel[1].toString()
-                                  ];
-                                  controller.quest_select_starting_point.value =
-                                      Attempted_Set.first;
-                                  print(controller.Scoutfly_level.value);
-                                  Get.toNamed(Routes.GetheringPhase);
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 10),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      side: BorderSide(
-                                        color: Colors.white,
-                                      )),
-                                ),
-                                child: Text(
-                                  "เริ่มออกสำรวจ (Gethering Phase)",
-                                  style: TextAppStyle.textsBodyLargeProminent(
-                                      color: Colors.brown.shade400),
-                                ))
-                            : SizedBox.shrink()),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextButton(
-                            onPressed: () async {
-                              Navigator.pop(context);
-                              await controller.resetAttemptedQuest(
-                                  controller.monster_select.value,
-                                  quest.questId);
-                            },
-                            style: TextButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 10),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  side: BorderSide(
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          Obx(() => Attempted_Set.isNotEmpty
+                              ? TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    controller.getDialogById(
+                                        Attempted_Set.first,
+                                        controller.monster_select.value);
+                                    controller.Scoutfly_level.value = [
+                                      quest.scoutflyLevel[0].toString(),
+                                      quest.scoutflyLevel[1].toString()
+                                    ];
+                                    controller.quest_select_starting_point
+                                        .value = Attempted_Set.first;
+                                    print(controller.Scoutfly_level.value);
+                                    Get.toNamed(Routes.GetheringPhase);
+                                  },
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.white,
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 10, horizontal: 10),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        side: BorderSide(
+                                          color: Colors.white,
+                                        )),
+                                  ),
+                                  child: Text(
+                                    "เริ่มออกสำรวจ (Gethering Phase)",
+                                    style: TextAppStyle.textsBodyLargeProminent(
+                                        color: Colors.brown.shade400),
+                                  ))
+                              : SizedBox.shrink()),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextButton(
+                              onPressed: () async {
+                                Navigator.pop(context);
+                                await controller.resetAttemptedQuest(
+                                    controller.monster_select.value,
+                                    quest.questId);
+                              },
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 10),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    side: BorderSide(
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              child: Text(
+                                "Reset Quest",
+                                style: TextAppStyle.textsBodyLargeProminent(
+                                    color: Colors.brown.shade400),
+                              )),
+                          SizedBox(
+                            height: 25,
+                          ),
+                          Obx(() {
+                            // แสดงผลจำนวนรอบที่เหลือ
+                            return InkWell(
+                              onTap: () {
+                                controller.isShowConsequences.value =
+                                    !controller.isShowConsequences.value;
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    controller.isShowConsequences.value
+                                        ? Icons.check_box_outline_blank_sharp
+                                        : Icons.check_box,
                                     color: Colors.white,
-                                  )),
-                            ),
-                            child: Text(
-                              "Reset Quest",
-                              style: TextAppStyle.textsBodyLargeProminent(
-                                  color: Colors.brown.shade400),
-                            )),
-                        SizedBox(
-                          height: 25,
-                        ),
-                        Obx(() {
-                          // แสดงผลจำนวนรอบที่เหลือ
-                          return InkWell(
-                            onTap: () {
-                              controller.isShowConsequences.value =
-                                  !controller.isShowConsequences.value;
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  controller.isShowConsequences.value
-                                      ? Icons.check_box_outline_blank_sharp
-                                      : Icons.check_box,
-                                  color: Colors.white,
-                                ),
-                                Text(
-                                  "ซ่อนผลที่ตามมาจากการเลือกเส้นทาง",
-                                  style: TextAppStyle.textsBodyMedium(
-                                      color: Colors.white60),
-                                  textAlign: TextAlign.center,
-                                )
-                              ],
-                            ),
-                          );
-                        }),
-                      ],
-                    )
-                  ],
-                )
-              ],
+                                  ),
+                                  Text(
+                                    "ซ่อนผลที่ตามมาจากการเลือกเส้นทาง",
+                                    style: TextAppStyle.textsBodyMedium(
+                                        color: Colors.white60),
+                                    textAlign: TextAlign.center,
+                                  )
+                                ],
+                              ),
+                            );
+                          }),
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         );

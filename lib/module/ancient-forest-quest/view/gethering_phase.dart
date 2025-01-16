@@ -291,58 +291,61 @@ class GetheringPhase extends StatelessWidget {
               backgroundColor: Colors.brown.shade400,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      "ผลลัพธ์ของเส้นทาง",
-                      //textAlign: TextAlign.center,
-                      style: TextAppStyle.textsBodyLargeProminent(
-                          color: Colors.white),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 2),
-                      ),
-                      width: double.infinity,
-                      child: Text(
-                        consequences,
-                        textAlign: TextAlign.center,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "ผลลัพธ์ของเส้นทาง",
+                        //textAlign: TextAlign.center,
                         style: TextAppStyle.textsBodyLargeProminent(
                             color: Colors.white),
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    TextButton(
-                        style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              vertical: 10,
-                              horizontal: 20,
-                            )),
-                        onPressed: () async {
-                          Navigator.pop(context);
-                          if (controller.Monster!.value.dialogHuntingPhase
-                              .contains(action.pathToDialog!)) {
-                            await controller.updateAttemptedQuest(
-                                controller.monster_select.value,
-                                controller.quest_select.value,
-                                controller.quest_select_starting_point.value);
-                          }
-                          controller.getDialogById(action.pathToDialog!,
-                              controller.monster_select.value);
-                        },
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 10),
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 2),
+                        ),
+                        width: double.infinity,
                         child: Text(
-                          "ไปต่อ",
+                          consequences,
+                          textAlign: TextAlign.center,
                           style: TextAppStyle.textsBodyLargeProminent(
-                              color: Colors.brown.shade400),
-                        ))
-                  ],
+                              color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 20,
+                              )),
+                          onPressed: () async {
+                            Navigator.pop(context);
+                            if (controller.Monster!.value.dialogHuntingPhase
+                                .contains(action.pathToDialog!)) {
+                              await controller.updateAttemptedQuest(
+                                  controller.monster_select.value,
+                                  controller.quest_select.value,
+                                  controller.quest_select_starting_point.value);
+                            }
+                            controller.getDialogById(action.pathToDialog!,
+                                controller.monster_select.value);
+                          },
+                          child: Text(
+                            "ไปต่อ",
+                            style: TextAppStyle.textsBodyLargeProminent(
+                                color: Colors.brown.shade400),
+                          ))
+                    ],
+                  ),
                 ),
               ));
         });

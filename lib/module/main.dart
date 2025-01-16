@@ -23,7 +23,7 @@ class Main extends StatelessWidget {
                     vertical: 50,
                   )),
               onPressed: () {
-                Get.toNamed(Routes.Ancientforest);
+                Get.toNamed(Routes.Campaign);
               },
               child: Text(
                 "Quest Book",
