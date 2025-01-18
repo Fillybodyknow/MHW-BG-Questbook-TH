@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: Routes.Root,
+      initialRoute: Routes.SelectAccount,
       getPages: AppPage.page,
       debugShowCheckedModeBanner: false,
     );

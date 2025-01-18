@@ -82,8 +82,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - assets/files/ancient-quest-book.json
-     - assets/files/hunter-save.json
+     - assets/files/class_hunter.json
+     - assets/files/resource.json
      - assets/img/
+     - assets/img/common/
+     - assets/img/monster_parts/
+     - assets/img/other_materials/
+     - assets/img/class/
      - assets/app_icon/
   #   - images/a_dot_ham.jpeg
 

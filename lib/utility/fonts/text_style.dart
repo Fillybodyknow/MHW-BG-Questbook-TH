@@ -32,7 +32,6 @@ class TextAppStyle {
         fontSize: 42,
         fontFamily: AppFont.Khaitun,
         fontWeight: FontWeight.w500,
-        height: 0.10,
         color: color,
       );
 
@@ -58,7 +57,6 @@ class TextAppStyle {
         fontSize: 14,
         fontFamily: AppFont.Khaitun,
         fontWeight: FontWeight.w600,
-        height: 0.10,
         color: color,
       );
 
