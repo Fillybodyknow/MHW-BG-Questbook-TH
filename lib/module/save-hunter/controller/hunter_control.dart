@@ -9,15 +9,15 @@ import 'package:mhw_quest_book/module/save-hunter/model/hunter_model.dart';
 class HunterControl extends GetxController {
   var accounts = <HunterDataModel>[].obs;
   late File jsonFile;
-  String fileName = 'hunter-save50.json';
+  String fileName = 'hunter-save.json';
 
   var hunterData = Rxn<HunterDataModel>();
 
-  @override
-  void onInit() {
-    super.onInit();
-    loadAccounts();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   loadAccounts();
+  // }
 
   Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
@@ -33,25 +33,6 @@ class HunterControl extends GetxController {
     final file = await _localFile;
     // เขียนข้อมูล JSON ไปยังไฟล์
     return file.writeAsString(jsonString);
-  }
-
-  Future<String> readHunterData() async {
-    try {
-      final file = await _localFile;
-      // ตรวจสอบว่าไฟล์มีอยู่หรือไม่
-      if (await file.exists()) {
-        return await file.readAsString();
-      } else {
-        // หากไฟล์ไม่มีอยู่ สร้างไฟล์ใหม่พร้อมข้อมูลเริ่มต้น
-        String defaultData =
-            jsonEncode({"inventory": [], "attempted_quest": []});
-        await file.writeAsString(defaultData);
-        return defaultData; // ส่งคืนข้อมูลเริ่มต้น
-      }
-    } catch (e) {
-      // หากเกิดข้อผิดพลาด ส่งคืนข้อมูลเริ่มต้นเช่นกัน
-      return jsonEncode({"inventory": [], "attempted_quest": []});
-    }
   }
 
   Future<void> loadAccounts() async {
@@ -70,7 +51,7 @@ class HunterControl extends GetxController {
         } catch (e) {
           print("Error decoding JSON: $e");
           // หากมีปัญหาในการอ่าน JSON ให้สร้างค่าเริ่มต้น
-          accounts.value = [];
+          //accounts.value = [];
         }
       } else {
         // ถ้าไฟล์ว่างเปล่า ให้สร้าง accounts เป็นลิสต์ว่าง

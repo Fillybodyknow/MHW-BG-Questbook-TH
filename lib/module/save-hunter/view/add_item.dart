@@ -66,7 +66,10 @@ class AddItem extends StatelessWidget {
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Obx(() {
-                      return Column(
+                      return Wrap(
+                        spacing: 1,
+                        runSpacing: 10,
+                        alignment: WrapAlignment.center,
                         children: filteredItems.map((item) {
                           bool show = true;
                           for (var hunterdata
@@ -82,8 +85,7 @@ class AddItem extends StatelessWidget {
                           if (show) {
                             return Container(
                               padding: EdgeInsets.all(15),
-                              margin: EdgeInsets.symmetric(vertical: 10),
-                              width: MediaQuery.of(context).size.width,
+                              //width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 border: Border.all(

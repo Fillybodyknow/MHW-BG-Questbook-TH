@@ -291,38 +291,5 @@
                 "thumbnail": "assets/img/monster_parts/a-rathalos-plate.png"
             }
         ]
-    },
-    {
-        "resource_type_id": 4,
-        "resource_type": "Anjanath",
-        "resources": [
-            {
-                "item_id": 1,
-                "item": "Carbalite Ore",
-                "thumbnail": "assets/img/common/carbalite-ore.png"
-            }
-        ]
-    },
-    {
-        "resource_type_id": 5,
-        "resource_type": "Rathalos",
-        "resources": [
-            {
-                "item_id": 1,
-                "item": "Carbalite Ore",
-                "thumbnail": "assets/img/common/carbalite-ore.png"
-            }
-        ]
-    },
-    {
-        "resource_type_id": 6,
-        "resource_type": "Azure Rathalos",
-        "resources": [
-            {
-                "item_id": 1,
-                "item": "Carbalite Ore",
-                "thumbnail": "assets/img/common/carbalite-ore.png"
-            }
-        ]
     }
 ]

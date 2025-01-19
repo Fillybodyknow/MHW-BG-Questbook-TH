@@ -17,189 +17,232 @@ class Savehunter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.brown.shade400,
-        title: Text(
-          "Inventory",
-          style: TextAppStyle.textsHeaderLargeProminent(color: Colors.white),
+        appBar: AppBar(
+          backgroundColor: Colors.brown.shade400,
+          title: Text(
+            "Inventory",
+            style: TextAppStyle.textsHeaderLargeProminent(color: Colors.white),
+          ),
+          centerTitle: true,
+          actions: [
+            Container(
+              margin: EdgeInsets.only(right: 10),
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  )),
+                ),
+                onPressed: () {},
+                child: Text(
+                  "CRAFT",
+                  style: TextAppStyle.textsBodyLargeProminent(
+                      color: Colors.brown.shade400),
+                ),
+              ),
+            )
+          ],
         ),
-        centerTitle: true,
-      ),
-      body: FutureBuilder(
-          future: resourceControl.loadResourceData(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
-            } else {
-              return Container(
-                margin: EdgeInsets.only(top: 20),
-                padding: EdgeInsets.only(left: 15, right: 15),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            "Potions",
-                            style: TextAppStyle.textsBodySuperLargeProminent(),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                  style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.brown.shade400),
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
+        body: FutureBuilder(
+            future: resourceControl.loadResourceData(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else {
+                return Container(
+                  margin: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.only(left: 5, right: 5),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Column(
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "Potions",
+                              style:
+                                  TextAppStyle.textsBodySuperLargeProminent(),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                    style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.brown.shade400),
+                                      shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                    onPressed: () async {
+                                      if (hunterControl
+                                              .hunterData.value!.potions ==
+                                          0) return;
+                                      hunterControl.hunterData.value!.potions--;
+                                      await hunterControl.saveAccountData();
+                                    },
+                                    icon: Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                      size: 15,
+                                    )),
+                                SizedBox(width: 10),
+                                Obx(() => Text(
+                                      "${hunterControl.hunterData.value!.potions}",
+                                      style: TextAppStyle
+                                          .textsBodySuperLargeProminent(
+                                              color: Colors.black),
+                                    )),
+                                SizedBox(width: 10),
+                                IconButton(
+                                    style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.brown.shade400),
+                                      shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                    onPressed: () async {
+                                      if (hunterControl
+                                              .hunterData.value!.potions ==
+                                          3) return;
+                                      hunterControl.hunterData.value!.potions++;
+                                      await hunterControl.saveAccountData();
+                                    },
+                                    icon: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                      size: 15,
+                                    )),
+                              ],
+                            )
+                          ],
+                        ),
+                        Obx(() => Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Expanded(
+                                    child: TextButton(
+                                      onPressed: () {
+                                        IsSelectedResourceType.value = 1;
+                                      },
+                                      style: TextButton.styleFrom(
+                                          backgroundColor:
+                                              IsSelectedResourceType.value == 1
+                                                  ? Colors.white
+                                                  : Colors.brown.shade400,
+                                          minimumSize: Size(75, 75),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(0),
+                                            side: BorderSide(
+                                                color: Colors.black, width: 1),
+                                          )),
+                                      child: Text(
+                                        'COMMON',
+                                        textAlign: TextAlign.center,
+                                        style: TextAppStyle
+                                            .textsBodyMediumProminent(
+                                                color: !(IsSelectedResourceType
+                                                            .value ==
+                                                        1)
+                                                    ? Colors.white
+                                                    : Colors.brown.shade400),
                                       ),
                                     ),
                                   ),
-                                  onPressed: () async {
-                                    if (hunterControl
-                                            .hunterData.value!.potions ==
-                                        0) return;
-                                    hunterControl.hunterData.value!.potions--;
-                                    await hunterControl.saveAccountData();
-                                  },
-                                  icon: Icon(
-                                    Icons.remove,
-                                    color: Colors.white,
-                                    size: 15,
-                                  )),
-                              SizedBox(width: 10),
-                              Obx(() => Text(
-                                    "${hunterControl.hunterData.value!.potions}",
-                                    style: TextAppStyle
-                                        .textsBodySuperLargeProminent(
-                                            color: Colors.black),
-                                  )),
-                              SizedBox(width: 10),
-                              IconButton(
-                                  style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.brown.shade400),
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
+                                  Expanded(
+                                    child: TextButton(
+                                      onPressed: () {
+                                        IsSelectedResourceType.value = 2;
+                                      },
+                                      style: TextButton.styleFrom(
+                                          backgroundColor:
+                                              IsSelectedResourceType.value == 2
+                                                  ? Colors.white
+                                                  : Colors.brown.shade400,
+                                          minimumSize: Size(75, 75),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(0),
+                                            side: BorderSide(
+                                                color: Colors.black, width: 1),
+                                          )),
+                                      child: Text(
+                                        'Other Materials',
+                                        textAlign: TextAlign.center,
+                                        style: TextAppStyle
+                                            .textsBodyMediumProminent(
+                                                color: !(IsSelectedResourceType
+                                                            .value ==
+                                                        2)
+                                                    ? Colors.white
+                                                    : Colors.brown.shade400),
                                       ),
                                     ),
                                   ),
-                                  onPressed: () async {
-                                    if (hunterControl
-                                            .hunterData.value!.potions ==
-                                        3) return;
-                                    hunterControl.hunterData.value!.potions++;
-                                    await hunterControl.saveAccountData();
-                                  },
-                                  icon: Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                    size: 15,
-                                  )),
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 50),
-                      Obx(() =>
-                          ResourceBox(context, IsSelectedResourceType.value)),
-                      // SizedBox(height: 40),
-                      // ResourceBox(context, 2),
-                      // SizedBox(height: 40),
-                      // ResourceBox(context, 3),
-                    ],
+                                  Expanded(
+                                    child: TextButton(
+                                      onPressed: () {
+                                        IsSelectedResourceType.value = 3;
+                                      },
+                                      style: TextButton.styleFrom(
+                                          backgroundColor:
+                                              IsSelectedResourceType.value == 3
+                                                  ? Colors.white
+                                                  : Colors.brown.shade400,
+                                          minimumSize: Size(75, 75),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(0),
+                                            side: BorderSide(
+                                                color: Colors.black, width: 1),
+                                          )),
+                                      child: Text(
+                                        'Monster Parts',
+                                        textAlign: TextAlign.center,
+                                        style: TextAppStyle
+                                            .textsBodyMediumProminent(
+                                                color: !(IsSelectedResourceType
+                                                            .value ==
+                                                        3)
+                                                    ? Colors.white
+                                                    : Colors.brown.shade400),
+                                      ),
+                                    ),
+                                  )
+                                ])),
+                        SizedBox(height: 10),
+                        Obx(() =>
+                            ResourceBox(context, IsSelectedResourceType.value)),
+                        // SizedBox(height: 40),
+                        // ResourceBox(context, 2),
+                        // SizedBox(height: 40),
+                        // ResourceBox(context, 3),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }
-          }),
-      bottomNavigationBar: BottomAppBar(
-        child: Obx(() =>
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    IsSelectedResourceType.value = 1;
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: IsSelectedResourceType.value == 1
-                          ? Colors.white
-                          : Colors.brown.shade400,
-                      minimumSize: Size(75, 75),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: BorderSide(color: Colors.black, width: 1),
-                      )),
-                  child: Text(
-                    'COMMON',
-                    textAlign: TextAlign.center,
-                    style: TextAppStyle.textsBodyMediumProminent(
-                        color: !(IsSelectedResourceType.value == 1)
-                            ? Colors.white
-                            : Colors.brown.shade400),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    IsSelectedResourceType.value = 2;
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: IsSelectedResourceType.value == 2
-                          ? Colors.white
-                          : Colors.brown.shade400,
-                      minimumSize: Size(75, 75),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: BorderSide(color: Colors.black, width: 1),
-                      )),
-                  child: Text(
-                    'Other Materials',
-                    textAlign: TextAlign.center,
-                    style: TextAppStyle.textsBodyMediumProminent(
-                        color: !(IsSelectedResourceType.value == 2)
-                            ? Colors.white
-                            : Colors.brown.shade400),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    IsSelectedResourceType.value = 3;
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: IsSelectedResourceType.value == 3
-                          ? Colors.white
-                          : Colors.brown.shade400,
-                      minimumSize: Size(75, 75),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                        side: BorderSide(color: Colors.black, width: 1),
-                      )),
-                  child: Text(
-                    'Monster Parts',
-                    textAlign: TextAlign.center,
-                    style: TextAppStyle.textsBodyMediumProminent(
-                        color: !(IsSelectedResourceType.value == 3)
-                            ? Colors.white
-                            : Colors.brown.shade400),
-                  ),
-                ),
-              )
-            ])),
-      ),
-    );
+                );
+              }
+            }));
   }
 
   Widget ResourceBox(BuildContext context, int resourceID) {
     String resourceName = resourceControl.resourceList
         .firstWhere((resource) => resource.resourceId == resourceID)
         .resourceType;
+
     return Container(
       child: Column(
         children: [
@@ -209,57 +252,69 @@ class Savehunter extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
+            padding: EdgeInsets.symmetric(vertical: 10),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.brown.shade400, width: 1),
             ),
             child: Column(
+              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Obx(() {
-                  if (hunterControl.hunterData.value!.inventory.isEmpty) {
+                  var inventory = hunterControl.hunterData.value!.inventory
+                      .where((e) => e.resourceTypeId == resourceID)
+                      .toList();
+
+                  if (inventory.isEmpty) {
                     return SizedBox.shrink();
                   } else {
-                    return Column(
-                        children: hunterControl.hunterData.value!.inventory
-                            .where((e) => e.resourceTypeId == resourceID)
-                            .map((inv) {
-                      ItemModel Item = resourceControl.resourceList
-                          .firstWhere(
-                              (resource) => resource.resourceId == resourceID)
-                          .items
-                          .firstWhere((item) => item.itemId == inv.itemId);
-                      return Container(
-                        padding: EdgeInsets.all(15),
-                        margin: EdgeInsets.symmetric(vertical: 10),
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                              color: Colors.brown.shade400, width: 2),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Container(
-                                  width: 25,
-                                  height: 25,
-                                  child: Image.asset(Item.thumbnail!),
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  Item.item,
-                                  style: TextAppStyle.textsBodyMediumProminent(
-                                      color: Colors.black),
-                                )
-                              ],
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
+                    return Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 10.0, // ระยะห่างระหว่าง items ในแนวนอน
+                      runSpacing: 10.0, // ระยะห่างระหว่าง items ในแนวตั้ง
+                      children: inventory.map((inv) {
+                        ItemModel item = resourceControl.resourceList
+                            .firstWhere(
+                                (resource) => resource.resourceId == resourceID)
+                            .items
+                            .firstWhere((item) => item.itemId == inv.itemId);
+
+                        return Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                                color: Colors.brown.shade400, width: 2),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    width: 25,
+                                    height: 25,
+                                    child: Image.asset(item.thumbnail!),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    item.item,
+                                    style:
+                                        TextAppStyle.textsBodyMediumProminent(
+                                            color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 10),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
                                     style: ButtonStyle(
+                                      minimumSize: MaterialStateProperty.all(
+                                        Size(45, 45),
+                                      ),
                                       backgroundColor:
                                           MaterialStateProperty.all(
                                               Colors.brown.shade400),
@@ -286,17 +341,21 @@ class Savehunter extends StatelessWidget {
                                       Icons.remove,
                                       color: Colors.white,
                                       size: 15,
-                                    )),
-                                SizedBox(width: 10),
-                                Obx(() => Text(
-                                      inv.quantity.toString(),
-                                      style: TextAppStyle
-                                          .textsHeaderLargeProminent(
-                                              color: Colors.black),
-                                    )),
-                                SizedBox(width: 10),
-                                IconButton(
+                                    ),
+                                  ),
+                                  SizedBox(width: 15),
+                                  Obx(() => Text(
+                                        inv.quantity.toString(),
+                                        style: TextAppStyle
+                                            .textsHeaderLargeProminent(
+                                                color: Colors.black),
+                                      )),
+                                  SizedBox(width: 15),
+                                  IconButton(
                                     style: ButtonStyle(
+                                      minimumSize: MaterialStateProperty.all(
+                                        Size(45, 45),
+                                      ),
                                       backgroundColor:
                                           MaterialStateProperty.all(
                                               Colors.brown.shade400),
@@ -316,13 +375,15 @@ class Savehunter extends StatelessWidget {
                                       Icons.add,
                                       color: Colors.white,
                                       size: 15,
-                                    ))
-                              ],
-                            )
-                          ],
-                        ),
-                      );
-                    }).toList());
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        );
+                      }).toList(),
+                    );
                   }
                 }),
               ],
@@ -330,26 +391,26 @@ class Savehunter extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           TextButton(
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(Colors.brown.shade400),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                )),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.brown.shade400),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              )),
+            ),
+            onPressed: () {
+              resourceControl.selectResource(resourceID);
+              Get.toNamed(Routes.AddItem);
+            },
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
               ),
-              onPressed: () {
-                resourceControl.selectResource(resourceID);
-                Get.toNamed(Routes.AddItem);
-              },
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                ),
-              ))
+            ),
+          ),
         ],
       ),
     );

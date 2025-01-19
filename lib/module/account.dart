@@ -22,100 +22,122 @@ class Account extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       backgroundColor: const Color.fromARGB(255, 241, 217, 209),
-      body: Center(
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Text(
-            "Saved Character",
-            style: TextAppStyle.textsBodySuperLargeProminent(),
-          ),
-          const SizedBox(height: 20),
-          Obx(() {
-            if (Hcontrol.accounts.isEmpty) {
-              return const SizedBox.shrink();
+      body: FutureBuilder(
+          future: Hcontrol.loadAccounts(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
             } else {
-              return Column(
-                children: Hcontrol.accounts.map((account) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                        color: Colors.brown.shade400,
-                        border: Border.all(color: Colors.black, width: 1)),
-                    child: InkWell(
-                      onTap: () {
-                        Hcontrol.selectHunter(account);
-                        Hcontrol.PrintSelectedHunter();
-                        Get.toNamed(Routes.Root);
-                      },
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                width: 50,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              SizedBox(width: 20),
-                              Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Hunter Name : ${account.hunter_name}",
-                                      style: TextAppStyle
-                                          .textsBodyMediumProminent()),
-                                  Text("Campiagn Day : ${account.campaign_day}",
-                                      style: TextAppStyle
-                                          .textsBodyMediumProminent())
-                                ],
-                              )
-                            ],
-                          ),
-                          IconButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                    Colors.red.shade900),
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                              onPressed: () async {
-                                Hcontrol.deleteAccount(account.hunter_id);
+              return Center(
+                child: Column(mainAxisSize: MainAxisSize.min, children: [
+                  Text(
+                    "Saved Character",
+                    style: TextAppStyle.textsBodySuperLargeProminent(),
+                  ),
+                  const SizedBox(height: 20),
+                  Obx(() {
+                    if (Hcontrol.accounts.isEmpty) {
+                      return const SizedBox.shrink();
+                    } else {
+                      return Column(
+                        children: Hcontrol.accounts.map((account) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 20),
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                                color: Colors.brown.shade400,
+                                border:
+                                    Border.all(color: Colors.black, width: 1)),
+                            child: InkWell(
+                              onTap: () {
+                                Hcontrol.selectHunter(account);
+                                Hcontrol.PrintSelectedHunter();
+                                Get.toNamed(Routes.Root);
                               },
-                              icon: Icon(
-                                Icons.cancel,
-                                color: Colors.white,
-                                size: 20,
-                              ))
-                        ],
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                      SizedBox(width: 20),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                              "Hunter Name : ${account.hunter_name}",
+                                              style: TextAppStyle
+                                                  .textsBodyMediumProminent()),
+                                          Text(
+                                              "Campiagn Day : ${account.campaign_day}",
+                                              style: TextAppStyle
+                                                  .textsBodyMediumProminent())
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  IconButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Colors.red.shade900),
+                                        shape: MaterialStateProperty.all(
+                                          RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        showdialogDelete(
+                                            context, account.hunter_id);
+                                      },
+                                      icon: Icon(
+                                        Icons.cancel,
+                                        color: Colors.white,
+                                        size: 20,
+                                      ))
+                                ],
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      );
+                    }
+                  }),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.brown.shade400),
                       ),
-                    ),
-                  );
-                }).toList(),
+                      onPressed: () => _showCreateAccountDialog(context),
+                      child: SizedBox(
+                        height: 80,
+                        width: 160,
+                        child: Icon(
+                          Icons.add_circle_sharp,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                      )),
+                ]),
               );
             }
           }),
-          SizedBox(height: 20),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.brown.shade400),
-            ),
-            onPressed: () => _showCreateAccountDialog(context),
-            child: Icon(
-              Icons.add_circle_sharp,
-              size: 50,
-              color: Colors.white,
-            ),
-          ),
-        ]),
-      ),
     );
   }
 
@@ -185,6 +207,80 @@ class Account extends StatelessWidget {
                           style: TextAppStyle.textsBodyLargeProminent(
                               color: Colors.brown.shade400),
                         ))
+                  ],
+                ),
+              ),
+            ));
+      },
+    );
+  }
+
+  void showdialogDelete(BuildContext context, int HunterID) {
+    // แสดง Dialog เพื่อให้ user ใส่ชื่อ
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            backgroundColor: Colors.brown.shade400,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "ต้องการจะลบข้อมูลนี้หรือไม่",
+                      //textAlign: TextAlign.center,
+                      style: TextAppStyle.textsBodyLargeProminent(
+                          color: Colors.white),
+                    ),
+                    SizedBox(height: 30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TextButton(
+                            style: TextButton.styleFrom(
+                                backgroundColor: Colors.red.shade900,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 20,
+                                )),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Hcontrol.deleteAccount(HunterID);
+                            },
+                            child: Text(
+                              "ลบ",
+                              style: TextAppStyle.textsBodyLargeProminent(
+                                  color: Colors.white),
+                            )),
+                        TextButton(
+                            style: TextButton.styleFrom(
+                                backgroundColor: Colors.green,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 20,
+                                )),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              "ยกเลิก",
+                              style: TextAppStyle.textsBodyLargeProminent(
+                                  color: Colors.white),
+                            ))
+                      ],
+                    )
                   ],
                 ),
               ),
