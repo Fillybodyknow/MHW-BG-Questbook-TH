@@ -18,5 +18,10 @@
         "hunter_class_id" : 4,
         "hunter_class" : "Sword & Shield",
         "thumbnail" : "assets/img/class/swordANDshield.png"
+    },
+    {
+        "hunter_class_id" : 5,
+        "hunter_class" : "Hammer",
+        "thumbnail" : "assets/img/class/hammer.webp"
     }
 ]

@@ -826,5 +826,169 @@
                 ]
             }
         ]
+    },
+    {
+        "hunter_class_id" : 5,
+        "weapons_list": [
+            {
+                "weapon_type_id": 1,
+                "weapon_type": "Ore",
+                "thumbnail": "assets/img/equiments/sets/Ores.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Iron Hammer",
+                        "rarity": 1,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 10,
+                            "damage_2": 1,
+                            "damage_3": 0,
+                            "damage_4": 1
+                        },
+                        "remove": "",
+                        "add": ""
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Iron Demon",
+                        "rarity": 2,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 8,
+                            "damage_2": 2,
+                            "damage_3": 0,
+                            "damage_4": 2
+                        },
+                        "remove": "2 Rare Steak",
+                        "add": "2 Well-Done Steak"
+                    },
+                    {
+                        "item_id": 3,
+                        "item": "Iron Archdemon",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 6,
+                            "damage_2": 3,
+                            "damage_3": 0,
+                            "damage_4": 3
+                        },
+                        "remove": "2 Rare Steak\n2 Upswing",
+                        "add": "2 Well-Done Steak\n2 Improved Upswing"
+                    }
+                ]
+            },
+            {
+                "weapon_type_id": 2,
+                "weapon_type": "Monster Bone",
+                "thumbnail": "assets/img/equiments/sets/dragon_bone.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Bone Bludgeon",
+                        "rarity": 1,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 7,
+                            "damage_2": 2,
+                            "damage_3": 0,
+                            "damage_4": 4
+                        },
+                        "remove": "",
+                        "add": ""
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Fossil Bludgeon",
+                        "rarity": 2,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 5,
+                            "damage_2": 3,
+                            "damage_3": 0,
+                            "damage_4": 2
+                        },
+                        "remove": "4 Charge",
+                        "add": "4 Improved Charge"
+                    },
+                    {
+                        "item_id": 3,
+                        "item": "Grandrock",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 4,
+                            "damage_2": 3,
+                            "damage_3": 0,
+                            "damage_4": 3
+                        },
+                        "remove": "4 Charge\n2 Spinning Bludgeon",
+                        "add": "4 Improved Charge\n2 Improved Spinning Bludgeon"
+                    }
+                ]
+            },
+            {
+                "weapon_type_id": 3,
+                "weapon_type": "Anjanath",
+                "thumbnail": "assets/img/equiments/sets/Anjanath.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Blazing Hammer",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 0,
+                            "damage_2": 8,
+                            "damage_3": 0,
+                            "damage_4": 4
+                        },
+                        "remove": "4 Big Bang",
+                        "add": "4 Blazing Big Bang"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Anja Striker",
+                        "rarity": 4,
+                        "defense": 1,
+                        "damage_cards": {
+                            "damage_1": 0,
+                            "damage_2": 9,
+                            "damage_3": 0,
+                            "damage_4": 3
+                        },
+                        "remove": "4 Big Bang\n2 Charged Upswing",
+                        "add": "4 Blazing Big Bang\n2 Blazing Charged Upswing"
+                    }
+                ]
+            }
+        ],
+        "weapon_priority_set": [
+            {
+                "weapon_type_id": 1,
+                "priority": [
+                    [1,1],
+                    [1,2],
+                    [1,3]
+                ]
+            },
+            {
+                "weapon_type_id": 2,
+                "priority": [
+                    [2,1],
+                    [2,2],
+                    [2,3]
+                ]
+            },
+            {
+                "weapon_type_id": 3,
+                "priority": [
+                    [2,1],
+                    [3,1],
+                    [3,2]
+                ]
+            }
+        ]
     }
 ]

@@ -67,6 +67,8 @@ class WeaponsRarityIcons {
         return "assets/img/equiments/weapons/dual-bladeR1.png";
       } else if (Weaponclass == 4) {
         return "assets/img/equiments/weapons/sword-shieldR1.png";
+      } else if (Weaponclass == 5) {
+        return "assets/img/equiments/weapons/hammerR1.png";
       } else {
         return "";
       }
@@ -79,6 +81,8 @@ class WeaponsRarityIcons {
         return "assets/img/equiments/weapons/dual-bladeR2.png";
       } else if (Weaponclass == 4) {
         return "assets/img/equiments/weapons/sword-shieldR2.png";
+      } else if (Weaponclass == 5) {
+        return "assets/img/equiments/weapons/hammerR2.png";
       } else {
         return "";
       }
@@ -91,6 +95,8 @@ class WeaponsRarityIcons {
         return "assets/img/equiments/weapons/dual-bladeR3.png";
       } else if (Weaponclass == 4) {
         return "assets/img/equiments/weapons/sword-shieldR3.png";
+      } else if (Weaponclass == 5) {
+        return "assets/img/equiments/weapons/hammerR3.png";
       } else {
         return "";
       }
@@ -103,6 +109,8 @@ class WeaponsRarityIcons {
         return "assets/img/equiments/weapons/dual-bladeR4.png";
       } else if (Weaponclass == 4) {
         return "assets/img/equiments/weapons/sword-shieldR4.png";
+      } else if (Weaponclass == 5) {
+        return "assets/img/equiments/weapons/hammerR4.png";
       } else {
         return "";
       }
