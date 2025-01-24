@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:mhw_quest_book/module/save-hunter/model/hunter_model.dart';
 import 'package:mhw_quest_book/utility/fonts/text_style.dart';
 import 'package:mhw_quest_book/module/save-hunter/controller/hunter_control.dart';
 import 'package:mhw_quest_book/app_route/route.dart';
@@ -41,6 +42,11 @@ class Account extends StatelessWidget {
                     } else {
                       return Column(
                         children: Hcontrol.accounts.map((account) {
+                          HunterClassModel? hunterClass = Hcontrol
+                              .hunterClassesList.value
+                              .firstWhereOrNull((element) =>
+                                  element.hunter_class_id ==
+                                  account.hunter_class_id);
                           return Container(
                             margin: EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 20),
@@ -52,7 +58,7 @@ class Account extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 Hcontrol.selectHunter(account);
-                                Hcontrol.PrintSelectedHunter();
+                                //Hcontrol.PrintSelectedHunter();
                                 Get.toNamed(Routes.Root);
                               },
                               child: Row(
@@ -63,14 +69,19 @@ class Account extends StatelessWidget {
                                   Row(
                                     children: [
                                       Container(
-                                        width: 50,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                      ),
+                                          width: 50,
+                                          height: 50,
+                                          padding: EdgeInsets.all(5),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Image.asset(
+                                            hunterClass!.thumbnail,
+                                            fit: BoxFit.cover,
+                                            alignment: Alignment.center,
+                                          )),
                                       SizedBox(width: 20),
                                       Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -78,11 +89,11 @@ class Account extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                              "Hunter Name : ${account.hunter_name}",
+                                              "Hunter Name : \n${account.hunter_name}",
                                               style: TextAppStyle
                                                   .textsBodyMediumProminent()),
                                           Text(
-                                              "Campiagn Day : ${account.campaign_day}",
+                                              "\nCampiagn Day : ${account.campaign_day}",
                                               style: TextAppStyle
                                                   .textsBodyMediumProminent())
                                         ],
@@ -144,6 +155,8 @@ class Account extends StatelessWidget {
   void _showCreateAccountDialog(BuildContext context) {
     // แสดง Dialog เพื่อให้ user ใส่ชื่อ
     String newAccountName = '';
+    Rxn<HunterClassModel> selectClass =
+        Rxn<HunterClassModel>(); // ใช้ Rxn สำหรับค่าเริ่มต้นเป็น null
     showDialog(
       context: context,
       builder: (context) {
@@ -161,7 +174,6 @@ class Account extends StatelessWidget {
                   children: [
                     Text(
                       "กรอกข้อมูลเพื่อสร้าง Save",
-                      //textAlign: TextAlign.center,
                       style: TextAppStyle.textsBodyLargeProminent(
                           color: Colors.white),
                     ),
@@ -187,6 +199,41 @@ class Account extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
+                    Obx(
+                      () => DropdownButton<HunterClassModel>(
+                        isExpanded: true, // เพิ่ม isExpanded
+                        dropdownColor: Colors.brown.shade500,
+                        items: Hcontrol.hunterClassesList
+                            .map<DropdownMenuItem<HunterClassModel>>(
+                                (HunterClassModel value) {
+                          return DropdownMenuItem(
+                            value: value,
+                            child: Row(
+                              children: [
+                                Image.asset(value.thumbnail,
+                                    width: 30, height: 30),
+                                SizedBox(width: 10),
+                                Text(value.hunter_class_name),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (HunterClassModel? v) {
+                          selectClass.value = v;
+                          print('Selected class: ${v?.hunter_class_name}');
+                        },
+                        value: selectClass.value,
+                        hint: Text(
+                          "เลือกคลาส*",
+                          style: TextAppStyle.textsBodyLargeProminent(
+                              color: Colors.white),
+                        ),
+                        style: TextAppStyle.textsBodyLargeProminent(
+                            color: Colors.white),
+                        alignment: Alignment.center,
+                      ),
+                    ),
+                    SizedBox(height: 20),
                     TextButton(
                         style: TextButton.styleFrom(
                             backgroundColor: Colors.white,
@@ -198,9 +245,24 @@ class Account extends StatelessWidget {
                               horizontal: 20,
                             )),
                         onPressed: () async {
+                          if (newAccountName.isEmpty ||
+                              selectClass.value == null) {
+                            // แสดงข้อความเตือนหากไม่มีการกรอกข้อมูลครบถ้วน
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                  content: Text(
+                                'กรุณากรอกชื่อและเลือกคลาส',
+                                style: TextAppStyle.textsBodyLargeProminent(
+                                    color: Colors.red),
+                              )),
+                            );
+                            return;
+                          }
                           Navigator.pop(context);
-                          if (newAccountName == '') return;
-                          Hcontrol.createNewAccount(newAccountName);
+                          print(
+                              'Saving class: ${selectClass.value?.hunter_class_name}');
+                          Hcontrol.createNewAccount(newAccountName,
+                              selectClass.value!.hunter_class_id);
                         },
                         child: Text(
                           "Create New Save",

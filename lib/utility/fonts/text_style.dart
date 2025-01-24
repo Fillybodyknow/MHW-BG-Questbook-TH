@@ -31,7 +31,7 @@ class TextAppStyle {
       TextStyle(
         fontSize: 42,
         fontFamily: AppFont.Khaitun,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w900,
         color: color,
       );
 

@@ -4,10 +4,12 @@ import 'package:mhw_quest_book/module/ancient-forest-quest/view/gethering_phase.
 import 'package:mhw_quest_book/module/ancient-forest-quest/view/select_quest.dart';
 import 'package:mhw_quest_book/module/save-hunter/save-hunter.dart';
 import 'package:mhw_quest_book/module/save-hunter/view/add_item.dart';
+import 'package:mhw_quest_book/module/save-hunter/view/crafting_view.dart';
 import 'package:mhw_quest_book/module/account.dart';
 import 'package:mhw_quest_book/app_route/route.dart';
 import 'package:mhw_quest_book/module/main.dart';
 import 'package:mhw_quest_book/module/campaign.dart';
+import 'package:mhw_quest_book/module/save-hunter/view/selected_equipment.dart';
 
 class AppPage {
   static final List<GetPage> page = [
@@ -25,5 +27,7 @@ class AppPage {
     GetPage(name: Routes.SelectAccount, page: () => Account()),
     GetPage(name: Routes.SaveHunter, page: () => Savehunter()),
     GetPage(name: Routes.AddItem, page: () => AddItem()),
+    GetPage(name: Routes.Crafting, page: () => CraftingView()),
+    GetPage(name: Routes.selectedEquipment, page: () => SelectedEquipment())
   ];
 }

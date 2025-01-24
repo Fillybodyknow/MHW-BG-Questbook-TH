@@ -7,4 +7,6 @@ class Routes {
   static const String SelectAccount = '/select_account';
   static const String SaveHunter = '/save_hunter';
   static const String AddItem = '/add_item';
+  static const String Crafting = '/Crafting';
+  static const String selectedEquipment = '/SelectedEquipment';
 }

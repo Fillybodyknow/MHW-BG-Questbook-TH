@@ -1,0 +1,88 @@
+[
+    {
+        "type_id": 1,
+        "type": "Armor",
+        "rarity_list": [
+            {
+                "equipment_rarity": 1,
+                "list": [
+                    {
+                        "id": 1,
+                        "name": "Helm",
+                        "thumbnail": "assets/img/equiments/armors/HelmR1.png"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Mail",
+                        "thumbnail": "assets/img/equiments/armors/MailR1.png"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Greaves",
+                        "thumbnail": "assets/img/equiments/armors/GreavesR1.png"
+                    }
+                ]
+            },
+            {
+                "equipment_rarity": 2,
+                "list": [
+                    {
+                        "id": 1,
+                        "name": "Helm",
+                        "thumbnail": "assets/img/equiments/armors/HelmR2.png"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Mail",
+                        "thumbnail": "assets/img/equiments/armors/MailR2.png"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Greaves",
+                        "thumbnail": "assets/img/equiments/armors/GreavesR2.png"
+                    }
+                ]
+            },
+            {
+                "equipment_rarity": 3,
+                "list": [
+                    {
+                        "id": 1,
+                        "name": "Helm",
+                        "thumbnail": "assets/img/equiments/armors/HelmR3.png"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Mail",
+                        "thumbnail": "assets/img/equiments/armors/MailR3.png"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Greaves",
+                        "thumbnail": "assets/img/equiments/armors/GreavesR3.png"
+                    }
+                ]
+            },
+            {
+                "equipment_rarity": 4,
+                "list": [
+                    {
+                        "id": 1,
+                        "name": "Helm",
+                        "thumbnail": "assets/img/equiments/armors/HelmR4.png"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Mail",
+                        "thumbnail": "assets/img/equiments/armors/MailR4.png"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Greaves",
+                        "thumbnail": "assets/img/equiments/armors/GreavesR4.png"
+                    }
+                ]
+            }
+        ]
+    }
+]

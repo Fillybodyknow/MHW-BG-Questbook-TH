@@ -2,7 +2,7 @@
     {
         "hunter_class_id" : 1,
         "hunter_class" : "Great Sword",
-        "thumbnail" : "assets/img/class/great-sword.png"
+        "thumbnail" : "assets/img/class/greatsword.png"
     },
     {
         "hunter_class_id" : 2,
@@ -17,6 +17,6 @@
     {
         "hunter_class_id" : 4,
         "hunter_class" : "Sword & Shield",
-        "thumbnail" : "assets/img/class/sword-and-shield.png"
+        "thumbnail" : "assets/img/class/swordANDshield.png"
     }
 ]

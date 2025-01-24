@@ -84,6 +84,16 @@ flutter:
      - assets/files/ancient-quest-book.json
      - assets/files/class_hunter.json
      - assets/files/resource.json
+     - assets/files/weapons.json
+     - assets/files/armors.json
+     - assets/files/status_effect.json
+     - assets/files/crafting_item.json
+     - assets/files/elemental.json
+     - assets/files/bonus_ability.json
+     - assets/img/equiments/armors/
+     - assets/img/elemental/
+     - assets/img/equiments/sets/
+     - assets/img/equiments/weapons/
      - assets/img/
      - assets/img/common/
      - assets/img/monster_parts/
