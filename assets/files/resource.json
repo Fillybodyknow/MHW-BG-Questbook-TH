@@ -123,6 +123,11 @@
                 "item_id": 9,
                 "item": "Inferno Sac",
                 "thumbnail": "assets/img/other_materials/inferno-sac.png"
+            },
+            {
+                "item_id": 10,
+                "item": "Fertile Mud",
+                "thumbnail": "assets/img/other_materials/fertile_mud.png"
             }
         ]
     },
@@ -284,6 +289,36 @@
                 "item_id": 32,
                 "item": "Azure Rathalos Plate",
                 "thumbnail": "assets/img/monster_parts/a-rathalos-plate.png"
+            },
+            {
+                "item_id": 33,
+                "item": "Azure Rathalos Plate",
+                "thumbnail": "assets/img/monster_parts/a-rathalos-plate.png"
+            },
+            {
+                "item_id": 34,
+                "item": "Barroth Carapace",
+                "thumbnail": "assets/img/monster_parts/barroth-carapace.png"
+            },
+            {
+                "item_id": 35,
+                "item": "Barroth Claw",
+                "thumbnail": "assets/img/monster_parts/barroth-claw.png"
+            },
+            {
+                "item_id": 36,
+                "item": "Barroth Ridge",
+                "thumbnail": "assets/img/monster_parts/barroth-ridge.png"
+            },
+            {
+                "item_id": 37,
+                "item": "Barroth Shell",
+                "thumbnail": "assets/img/monster_parts/barroth-shell.png"
+            },
+            {
+                "item_id": 38,
+                "item": "Barroth Tail",
+                "thumbnail": "assets/img/monster_parts/barroth-tail.png"
             }
         ]
     }

@@ -4,11 +4,12 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mhw_quest_book/app_route/route.dart';
 import 'package:mhw_quest_book/utility/fonts/text_style.dart';
+import 'package:mhw_quest_book/module/ancient-forest-quest/controller/AFcontroller.dart';
 
 class Campaign extends StatelessWidget {
-  const Campaign({super.key});
+  Afcontroller controller = Get.put(Afcontroller());
 
-  Widget CampaignBox(String name, String image, String route) {
+  Widget CampaignBox(String name, String image, String route, int CampaignId) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -27,6 +28,7 @@ class Campaign extends StatelessWidget {
                     vertical: 50,
                   )),
               onPressed: () {
+                controller.SelectedQuestCampaign.value = CampaignId;
                 Get.toNamed(route);
               },
               child: Column(
@@ -52,6 +54,7 @@ class Campaign extends StatelessWidget {
                   SizedBox(height: 50),
                   Text(
                     name,
+                    textAlign: TextAlign.center,
                     style: TextAppStyle.textsBodySuperLargeProminent(
                         color: Colors.white),
                   )
@@ -78,7 +81,9 @@ class Campaign extends StatelessWidget {
             scrollDirection: Axis.vertical,
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               CampaignBox("Ancient Forest", "assets/img/ancient_forest.webp",
-                  Routes.Ancientforest)
+                  Routes.Ancientforest, 1),
+              CampaignBox("Wildspire Waste", "assets/img/wildspire_waste.webp",
+                  Routes.Ancientforest, 2)
             ]),
           ),
         ));

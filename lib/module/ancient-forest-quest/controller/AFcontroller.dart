@@ -8,6 +8,9 @@ import 'package:path_provider/path_provider.dart';
 
 class Afcontroller extends GetxController {
   RxList<MonsterModel> AncientForest = <MonsterModel>[].obs;
+  RxList<MonsterModel> WildspireWaste = <MonsterModel>[].obs;
+
+  RxInt SelectedQuestCampaign = 1.obs;
   Rx<MonsterModel>? Monster = MonsterModel(
       dialogHuntingPhase: [],
       monsterId: 0,
@@ -31,6 +34,19 @@ class Afcontroller extends GetxController {
     // โหลดไฟล์ JSON จาก asset
     String jsonString =
         await rootBundle.loadString('assets/files/ancient-quest-book.json');
+
+    // แปลง JSON string เป็น List<Map<String, dynamic>>
+    List<dynamic> jsonList = jsonDecode(jsonString);
+
+    // แปลง List<Map<String, dynamic>> เป็น List<Monster>
+    AncientForest.value =
+        jsonList.map((json) => MonsterModel.fromJson(json)).toList();
+  }
+
+  Future<void> loadMonstersWildspireWasteData() async {
+    // โหลดไฟล์ JSON จาก asset
+    String jsonString =
+        await rootBundle.loadString('assets/files/wildspire_book.json');
 
     // แปลง JSON string เป็น List<Map<String, dynamic>>
     List<dynamic> jsonList = jsonDecode(jsonString);

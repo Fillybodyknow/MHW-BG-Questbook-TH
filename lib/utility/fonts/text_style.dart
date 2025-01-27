@@ -29,7 +29,7 @@ class TextAppStyle {
 
   static TextStyle textsBodySuperLargeProminent({Color color = Colors.black}) =>
       TextStyle(
-        fontSize: 42,
+        fontSize: 40,
         fontFamily: AppFont.Khaitun,
         fontWeight: FontWeight.w900,
         color: color,

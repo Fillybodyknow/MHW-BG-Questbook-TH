@@ -169,6 +169,41 @@
                         "add": "4 Blazing Slam\n2 Crushing Slash"
                     }
                 ]
+            },
+            {
+                "weapon_type_id": 5,
+                "weapon_type": "Barroth",
+                "thumbnail": "assets/img/equiments/sets/barroth.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Carapace Buster",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 0,
+                            "damage_2": 5,
+                            "damage_3": 4,
+                            "damage_4": 1
+                        },
+                        "remove": "2 Great Sword Block",
+                        "add": "2 Empowered Great Sword Block"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Barroth Shredder",
+                        "rarity": 4,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 0,
+                            "damage_2": 6,
+                            "damage_3": 4,
+                            "damage_4": 2
+                        },
+                        "remove": "2 Great Sword Block\nAny 2 Cards",
+                        "add": "2 Empowered Great Sword Block\n2 Paralysing Slash"
+                    }
+                ]
             }
         ],
         "weapon_priority_set": [
@@ -194,6 +229,14 @@
                     [1,1],
                     [3,1],
                     [3,2]
+                ]
+            },
+            {
+                "weapon_type_id": 5,
+                "priority": [
+                    [2,1],
+                    [5,1],
+                    [5,2]
                 ]
             },
             {
@@ -790,6 +833,41 @@
                         "add": "2 Advancing Double Slash\n2 Blazing Combo"
                     }
                 ]
+            },
+            {
+                "weapon_type_id": 5,
+                "weapon_type": "Barroth",
+                "thumbnail": "assets/img/equiments/sets/barroth.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Carapace Edge",
+                        "rarity": 3,
+                        "defense": 1,
+                        "damage_cards": {
+                            "damage_1": 0,
+                            "damage_2": 8,
+                            "damage_3": 2,
+                            "damage_4": 0
+                        },
+                        "remove": "2 Advancing Slash",
+                        "add": "2 Powerful Double Slash"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Heat Edge",
+                        "rarity": 4,
+                        "defense": 1,
+                        "damage_cards": {
+                            "damage_1": 0,
+                            "damage_2": 8,
+                            "damage_3": 4,
+                            "damage_4": 0
+                        },
+                        "remove": "2 Advancing Slash\n2 Chop",
+                        "add": "2 Powerful Double Slash\n 2 Steadfast Chop"
+                    }
+                ]
             }
         ],
         "weapon_priority_set": [
@@ -815,6 +893,14 @@
                     [2,1],
                     [3,1],
                     [3,2]
+                ]
+            },
+            {
+                "weapon_type_id": 5,
+                "priority": [
+                    [2,1],
+                    [5,1],
+                    [5,2]
                 ]
             },
             {
@@ -962,6 +1048,41 @@
                         "add": "4 Blazing Big Bang\n2 Blazing Charged Upswing"
                     }
                 ]
+            },
+            {
+                "weapon_type_id": 4,
+                "weapon_type": "Barroth",
+                "thumbnail": "assets/img/equiments/sets/barroth.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Carapace Sledge",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 4,
+                            "damage_2": 2,
+                            "damage_3": 0,
+                            "damage_4": 4
+                        },
+                        "remove": "2 Spinning Bludgeon",
+                        "add": "2 Brutal Bludgeon"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Barroth Breaker",
+                        "rarity": 4,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 2,
+                            "damage_2": 5,
+                            "damage_3": 0,
+                            "damage_4": 5
+                        },
+                        "remove": "2 Spinning Bludgeon\n2 Charge Brutal Big Bang",
+                        "add": "2 Brutal Bludgeon\n2 Pulverising Brutal Big Bang"
+                    }
+                ]
             }
         ],
         "weapon_priority_set": [
@@ -979,6 +1100,14 @@
                     [2,1],
                     [2,2],
                     [2,3]
+                ]
+            },
+            {
+                "weapon_type_id": 4,
+                "priority": [
+                    [2,1],
+                    [4,1],
+                    [4,2]
                 ]
             },
             {

@@ -73,5 +73,15 @@
         "ability_id": 15,
         "ability_name": "Focus",
         "ability": "เมื่อ Hunter เล่นการ์ดที่มีสัญลักษณ์ Combos, ให้ลดจำนวน Combos ลง 1 หน่วย แต่จำนวน Combos ต้องไม่ต่ำกว่า 1 หน่วย"
+    },
+    {
+        "ability_id": 16,
+        "ability_name": "Guard",
+        "ability": "เมื่อ Hunter เล่นการ์ดโจมตีที่มีค่าป้องกัน ให้เพิ่มค่าป้องกันอีก +1 หน่วย"
+    },
+    {
+        "ability_id": 17,
+        "ability_name": "Stun Resistance",
+        "ability": "Hunter จะต้านทานต่อสถานะ Stun ได้"
     }
 ]

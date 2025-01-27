@@ -19,7 +19,11 @@ class Ancientforest extends StatelessWidget {
         centerTitle: true,
       ),
       body: FutureBuilder(
-        future: controller.loadMonstersAncientForestData(),
+        future: controller.SelectedQuestCampaign.value == 1
+            ? controller.loadMonstersAncientForestData()
+            : controller.SelectedQuestCampaign.value == 2
+                ? controller.loadMonstersWildspireWasteData()
+                : Future.delayed(Duration.zero),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
@@ -86,6 +90,7 @@ class Ancientforest extends StatelessWidget {
                                       SizedBox(height: 50),
                                       Text(
                                         monster.monsterName,
+                                        textAlign: TextAlign.center,
                                         style: TextAppStyle
                                             .textsBodySuperLargeProminent(
                                                 color: Colors.white),

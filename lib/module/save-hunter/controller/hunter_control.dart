@@ -187,27 +187,12 @@ class HunterControl extends GetxController {
       InvArmorModel Mail = InvArmorModel(equip_set_id: 0, equip_id: 0);
       InvArmorModel Gauntlets = InvArmorModel(equip_set_id: 0, equip_id: 0);
 
-      if (classId == 1) {
+      if (classId == 1 || classId == 2) {
         Weapon = InvWeaponModel(weapon_type_id: 1.obs, item_id: 1.obs);
         Helm = InvArmorModel(equip_set_id: 1, equip_id: 1);
         Mail = InvArmorModel(equip_set_id: 1, equip_id: 2);
         Gauntlets = InvArmorModel(equip_set_id: 1, equip_id: 3);
-      } else if (classId == 2) {
-        Weapon = InvWeaponModel(weapon_type_id: 1.obs, item_id: 1.obs);
-        Helm = InvArmorModel(equip_set_id: 1, equip_id: 1);
-        Mail = InvArmorModel(equip_set_id: 1, equip_id: 2);
-        Gauntlets = InvArmorModel(equip_set_id: 1, equip_id: 3);
-      } else if (classId == 3) {
-        Weapon = InvWeaponModel(weapon_type_id: 1.obs, item_id: 1.obs);
-        Helm = InvArmorModel(equip_set_id: 2, equip_id: 1);
-        Mail = InvArmorModel(equip_set_id: 2, equip_id: 2);
-        Gauntlets = InvArmorModel(equip_set_id: 2, equip_id: 3);
-      } else if (classId == 4) {
-        Weapon = InvWeaponModel(weapon_type_id: 1.obs, item_id: 1.obs);
-        Helm = InvArmorModel(equip_set_id: 2, equip_id: 1);
-        Mail = InvArmorModel(equip_set_id: 2, equip_id: 2);
-        Gauntlets = InvArmorModel(equip_set_id: 2, equip_id: 3);
-      } else if (classId == 5) {
+      } else if (classId == 3 || classId == 4 || classId == 5) {
         Weapon = InvWeaponModel(weapon_type_id: 1.obs, item_id: 1.obs);
         Helm = InvArmorModel(equip_set_id: 2, equip_id: 1);
         Mail = InvArmorModel(equip_set_id: 2, equip_id: 2);

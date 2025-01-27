@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:mhw_quest_book/module/save-hunter/model/equiment_model.dart';
 import 'package:mhw_quest_book/module/save-hunter/model/hunter_model.dart';
 import 'package:mhw_quest_book/module/save-hunter/model/utility_model.dart';
@@ -507,12 +508,16 @@ class CraftingControl extends GetxController {
         armorSetList.firstWhere((item) => item.equip_set_id == equipSetid);
 
     RxString SetAbility = "".obs;
+    RxString SetAbilityDiscription = "".obs;
 
     if (bonusAbilityList
         .any((item) => item.abilityID == SetArmor.set_ability_bonus)) {
       SetAbility.value = bonusAbilityList
           .firstWhere((item) => item.abilityID == SetArmor.set_ability_bonus)
           .abilityName;
+      SetAbilityDiscription.value = bonusAbilityList
+          .firstWhere((item) => item.abilityID == SetArmor.set_ability_bonus)
+          .abilityDescription;
     }
 
     return Container(
@@ -541,18 +546,31 @@ class CraftingControl extends GetxController {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SetArmor.set_ability_bonus != 0
-                    ? Container(
-                        //padding: EdgeInsets.only(bottom: 5),
-                        margin: EdgeInsets.only(bottom: 10),
-                        decoration: BoxDecoration(
-                            color: Colors.brown.shade300,
-                            border: Border(
-                                bottom: BorderSide(
-                                    color: Colors.brown.shade900, width: 3))),
-                        child: Text("Set Bonus : ${SetAbility.value}",
-                            style: TextAppStyle.textsBodyLargeProminent(
-                              color: Colors.white,
-                            )),
+                    ? Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 10),
+                            decoration: BoxDecoration(
+                                color: Colors.brown.shade300,
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.brown.shade900,
+                                        width: 3))),
+                            child: Text("Set Bonus : ${SetAbility.value}",
+                                style: TextAppStyle.textsBodyLargeProminent(
+                                  color: Colors.white,
+                                )),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            margin: EdgeInsets.only(bottom: 10),
+                            child: Text(SetAbilityDiscription.value,
+                                textAlign: TextAlign.center,
+                                style: TextAppStyle.textsBodySmall(
+                                  color: Colors.white,
+                                )),
+                          )
+                        ],
                       )
                     : SizedBox.shrink(),
                 SingleChildScrollView(
@@ -1186,20 +1204,34 @@ class CraftingControl extends GetxController {
             Container(
               padding: EdgeInsets.symmetric(vertical: 5),
               width: double.infinity,
-              height: 48,
+              //height: 48,
               decoration:
                   BoxDecoration(border: Border.all(color: Colors.white)),
               child: Center(
                   child: Armor.ability_id == 0
                       ? SizedBox.shrink()
-                      : Text(
-                          textAlign: TextAlign.center,
-                          bonusAbilityList
-                              .firstWhere(
-                                  (e) => e.abilityID == Armor.ability_id)
-                              .abilityName,
-                          style:
-                              TextAppStyle.textsBodyMedium(color: Colors.white),
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              textAlign: TextAlign.center,
+                              "< ${bonusAbilityList.firstWhere((e) => e.abilityID == Armor.ability_id).abilityName} >",
+                              style: TextAppStyle.textsBodyLargeProminent(
+                                  color: Colors.white),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 5),
+                              child: Text(
+                                textAlign: TextAlign.center,
+                                bonusAbilityList
+                                    .firstWhere(
+                                        (e) => e.abilityID == Armor.ability_id)
+                                    .abilityDescription,
+                                style: TextAppStyle.textsBodySmall(
+                                    color: Colors.white),
+                              ),
+                            )
+                          ],
                         )),
             ),
             enableCraft &&
