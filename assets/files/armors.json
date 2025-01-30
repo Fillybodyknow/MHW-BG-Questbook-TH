@@ -418,5 +418,131 @@
                         "ability_id": 17
                     }
                 ]
-            }    
+            },
+            {
+                "equip_set_id": 11,
+                "equip_set": "Pukei-Pukei",
+                "thumbnail": "assets/img/equiments/sets/pukei-pukei.png",
+                "rarity": 3,
+                "set_ability_bonus": 0,
+                "equips": [
+                    {
+                        "equip_id": 1,
+                        "equip": "Pukei Helm",
+                        "armor_part_id": 1,
+                        "physical_armor": 1,
+                        "elemental_armor": {
+                            "elemental_id": 2,
+                            "protection": 1
+                        },
+                        "ability_id": 18
+                    },
+                    {
+                        "equip_id": 2,
+                        "equip": "Pukei Mail",
+                        "armor_part_id": 2,
+                        "physical_armor": 1,
+                        "elemental_armor": {
+                            "elemental_id": 2,
+                            "protection": 1
+                        },
+                        "ability_id": 19
+                    },
+                    {
+                        "equip_id": 3,
+                        "equip": "Pukei Greaves",
+                        "armor_part_id": 3,
+                        "physical_armor": 1,
+                        "elemental_armor": {
+                            "elemental_id": 2,
+                            "protection": 1
+                        },
+                        "ability_id": 1
+                    }
+                ]
+            },
+            {
+                "equip_set_id": 12,
+                "equip_set": "Jyuratodus",
+                "thumbnail": "assets/img/equiments/sets/jyuratodus.png",
+                "rarity": 3,
+                "set_ability_bonus": 0,
+                "equips": [
+                    {
+                        "equip_id": 1,
+                        "equip": "Jyura Helm",
+                        "armor_part_id": 1,
+                        "physical_armor": 1,
+                        "elemental_armor": {
+                            "elemental_id": 2,
+                            "protection": 1
+                        },
+                        "ability_id": 20
+                    },
+                    {
+                        "equip_id": 2,
+                        "equip": "Jyura Mail",
+                        "armor_part_id": 2,
+                        "physical_armor": 1,
+                        "elemental_armor": {
+                            "elemental_id": 2,
+                            "protection": 1
+                        },
+                        "ability_id": 21
+                    },
+                    {
+                        "equip_id": 3,
+                        "equip": "Jyura Greaves",
+                        "armor_part_id": 3,
+                        "physical_armor": 1,
+                        "elemental_armor": {
+                            "elemental_id": 2,
+                            "protection": 2
+                        },
+                        "ability_id": 0
+                    }
+                ]
+            },
+            {
+                "equip_set_id": 13,
+                "equip_set": "Diablos",
+                "thumbnail": "assets/img/equiments/sets/diablos.png",
+                "rarity": 4,
+                "set_ability_bonus": 23,
+                "equips": [
+                    {
+                        "equip_id": 1,
+                        "equip": "Diablos Helm",
+                        "armor_part_id": 1,
+                        "physical_armor": 1,
+                        "elemental_armor": {
+                            "elemental_id": 1,
+                            "protection": 1
+                        },
+                        "ability_id": 22
+                    },
+                    {
+                        "equip_id": 2,
+                        "equip": "Jyura Mail",
+                        "armor_part_id": 2,
+                        "physical_armor": 1,
+                        "elemental_armor": {
+                            "elemental_id": 1,
+                            "protection": 1
+                        },
+                        "ability_id": 2
+                    },
+                    {
+                        "equip_id": 3,
+                        "equip": "Jyura Greaves",
+                        "armor_part_id": 3,
+                        "physical_armor": 2,
+                        "elemental_armor": {
+                            "elemental_id": 1,
+                            "protection": 1
+                        },
+                        "ability_id": 0
+                    }
+                ]
+            } 
 ]

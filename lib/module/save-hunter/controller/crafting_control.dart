@@ -504,6 +504,7 @@ class CraftingControl extends GetxController {
   }
 
   Widget CatagolyEquipBox(int equipSetid) {
+    RxBool IsShow = false.obs;
     armorSetModel SetArmor =
         armorSetList.firstWhere((item) => item.equip_set_id == equipSetid);
 
@@ -525,89 +526,104 @@ class CraftingControl extends GetxController {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            margin: EdgeInsets.only(top: 25),
-            width: 75,
-            height: 75,
-            child: Image.asset(
-              SetArmor.thumbnail,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(
-                color: Colors.brown.shade300,
-                border: Border.symmetric(
-                    horizontal:
-                        BorderSide(color: Colors.brown.shade900, width: 10))),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SetArmor.set_ability_bonus != 0
+          Obx(() => IsShow.value ? SizedBox(height: 10) : SizedBox.shrink()),
+          InkWell(
+              onTap: () {
+                IsShow.value = !IsShow.value;
+              },
+              child: Container(
+                width: 75,
+                height: 75,
+                child: Image.asset(
+                  SetArmor.thumbnail,
+                  fit: BoxFit.cover,
+                ),
+              )),
+          Obx(
+            () => Container(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                    color: Colors.brown.shade300,
+                    border: Border.symmetric(
+                        horizontal: BorderSide(
+                            color: Colors.brown.shade900, width: 10))),
+                child: IsShow.value
                     ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            margin: EdgeInsets.only(bottom: 10),
-                            decoration: BoxDecoration(
-                                color: Colors.brown.shade300,
-                                border: Border(
-                                    bottom: BorderSide(
-                                        color: Colors.brown.shade900,
-                                        width: 3))),
-                            child: Text("Set Bonus : ${SetAbility.value}",
-                                style: TextAppStyle.textsBodyLargeProminent(
-                                  color: Colors.white,
-                                )),
-                          ),
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 15),
-                            margin: EdgeInsets.only(bottom: 10),
-                            child: Text(SetAbilityDiscription.value,
-                                textAlign: TextAlign.center,
-                                style: TextAppStyle.textsBodySmall(
-                                  color: Colors.white,
-                                )),
+                          SetArmor.set_ability_bonus != 0
+                              ? Column(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(bottom: 10),
+                                      decoration: BoxDecoration(
+                                          color: Colors.brown.shade300,
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                  color: Colors.brown.shade900,
+                                                  width: 3))),
+                                      child: Text(
+                                          "Set Bonus : ${SetAbility.value}",
+                                          style: TextAppStyle
+                                              .textsBodyLargeProminent(
+                                            color: Colors.white,
+                                          )),
+                                    ),
+                                    Container(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 15),
+                                      margin: EdgeInsets.only(bottom: 10),
+                                      child: Text(SetAbilityDiscription.value,
+                                          textAlign: TextAlign.center,
+                                          style: TextAppStyle.textsBodySmall(
+                                            color: Colors.white,
+                                          )),
+                                    )
+                                  ],
+                                )
+                              : SizedBox.shrink(),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: SetArmor.equips
+                                  .map((e) => Obx(() {
+                                        return Opacity(
+                                          opacity: CanCraft(
+                                                          SetArmor.equip_set_id,
+                                                          e.equip_id)
+                                                      .value ||
+                                                  InventoryArmorCheck(
+                                                          equipSetid,
+                                                          e.equip_id)
+                                                      .value
+                                              ? 0.8
+                                              : 0.5,
+                                          child: EquipBoxList(
+                                              e,
+                                              SetArmor.rarity,
+                                              SetArmor.equip_set_id,
+                                              CanCraft(SetArmor.equip_set_id,
+                                                      e.equip_id)
+                                                  .value),
+                                        );
+                                      }))
+                                  .toList(),
+                            ),
                           )
                         ],
                       )
-                    : SizedBox.shrink(),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: SetArmor.equips
-                        .map((e) => Obx(() {
-                              return Opacity(
-                                opacity:
-                                    CanCraft(SetArmor.equip_set_id, e.equip_id)
-                                                .value ||
-                                            InventoryArmorCheck(
-                                                    equipSetid, e.equip_id)
-                                                .value
-                                        ? 0.8
-                                        : 0.5,
-                                child: EquipBoxList(
-                                    e,
-                                    SetArmor.rarity,
-                                    SetArmor.equip_set_id,
-                                    CanCraft(SetArmor.equip_set_id, e.equip_id)
-                                        .value),
-                              );
-                            }))
-                        .toList(),
-                  ),
-                )
-              ],
-            ),
-          )
+                    : SizedBox.shrink()),
+          ),
+          Obx(() => IsShow.value ? SizedBox(height: 10) : SizedBox.shrink()),
         ],
       ),
     );
   }
 
   Widget CatagolyWeaponBox(WeaponsList weapon) {
+    RxBool IsShow = false.obs;
     WeaponPriorityModel priorityModel = weaponPriorityList
         .firstWhere((e) => e.weapon_type_id == weapon.weaponTypeId);
     return Container(
@@ -615,61 +631,76 @@ class CraftingControl extends GetxController {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            margin: EdgeInsets.only(top: 25),
-            width: 75,
-            height: 75,
-            child: Image.asset(
-              weapon.thumbnail,
-              fit: BoxFit.cover,
+          Obx(() => IsShow.value ? SizedBox(height: 10) : SizedBox.shrink()),
+          InkWell(
+            onTap: () {
+              IsShow.value = !IsShow.value;
+            },
+            child: Container(
+              width: 75,
+              height: 75,
+              child: Image.asset(
+                weapon.thumbnail,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(
-                color: Colors.brown.shade300,
-                border: Border.symmetric(
-                    horizontal:
-                        BorderSide(color: Colors.brown.shade900, width: 10))),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children:
-                        priorityModel.priority.asMap().entries.map((entry) {
-                      int index = entry.key;
-                      List<dynamic> e = entry.value;
-                      // print(index);
-                      // print(priorityModel.priority.length);
-                      return Row(
+          Obx(() => Container(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                    color: Colors.brown.shade300,
+                    border: Border.symmetric(
+                        horizontal: BorderSide(
+                            color: Colors.brown.shade900, width: 10))),
+                child: IsShow.value
+                    ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Obx(() => Opacity(
-                                opacity: CanCraftWeapon(e[0], e[1]).value ||
-                                        InventoryWeaponCheck(e[0], e[1]).value
-                                    ? 0.8
-                                    : 0.5,
-                                child: WeaponBoxList(e, weapon.weaponTypeId,
-                                    CanCraftWeapon(e[0], e[1]).value),
-                              )),
-                          priorityModel.priority.length > index + 1
-                              ? Icon(
-                                  Icons.arrow_circle_right_outlined,
-                                  color: Colors.white,
-                                  size: 75,
-                                )
-                              : SizedBox.shrink()
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: priorityModel.priority
+                                  .asMap()
+                                  .entries
+                                  .map((entry) {
+                                int index = entry.key;
+                                List<dynamic> e = entry.value;
+                                // print(index);
+                                // print(priorityModel.priority.length);
+                                return Row(
+                                  children: [
+                                    Obx(() => Opacity(
+                                          opacity: CanCraftWeapon(e[0], e[1])
+                                                      .value ||
+                                                  InventoryWeaponCheck(
+                                                          e[0], e[1])
+                                                      .value
+                                              ? 0.8
+                                              : 0.5,
+                                          child: WeaponBoxList(
+                                              e,
+                                              weapon.weaponTypeId,
+                                              CanCraftWeapon(e[0], e[1]).value),
+                                        )),
+                                    priorityModel.priority.length > index + 1
+                                        ? Icon(
+                                            Icons.arrow_circle_right_outlined,
+                                            color: Colors.white,
+                                            size: 75,
+                                          )
+                                        : SizedBox.shrink()
+                                  ],
+                                );
+                              }).toList(),
+                            ),
+                          )
                         ],
-                      );
-                    }).toList(),
-                  ),
-                )
-              ],
-            ),
-          )
+                      )
+                    : SizedBox.shrink(),
+              )),
+          Obx(() => IsShow.value ? SizedBox(height: 10) : SizedBox.shrink()),
         ],
       ),
     );

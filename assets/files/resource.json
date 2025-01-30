@@ -128,6 +128,51 @@
                 "item_id": 10,
                 "item": "Fertile Mud",
                 "thumbnail": "assets/img/other_materials/fertile_mud.png"
+            },
+            {
+                "item_id": 11,
+                "item": "Poison Sac",
+                "thumbnail": "assets/img/other_materials/poison_sac.png"
+            },
+            {
+                "item_id": 12,
+                "item": "Toxin Sac",
+                "thumbnail": "assets/img/other_materials/toxin_sac.png"
+            },
+            {
+                "item_id": 13,
+                "item": "Aqua Sac",
+                "thumbnail": "assets/img/other_materials/aqua_sac.png"
+            },
+            {
+                "item_id": 14,
+                "item": "Gajau Scale",
+                "thumbnail": "assets/img/other_materials/gajau_scale.png"
+            },
+            {
+                "item_id": 15,
+                "item": "Torrent Sac",
+                "thumbnail": "assets/img/other_materials/torrent_sac.png"
+            },
+            {
+                "item_id": 16,
+                "item": "Wyvern Gem",
+                "thumbnail": "assets/img/other_materials/wyvern_gem.png"
+            },
+            {
+                "item_id": 17,
+                "item": "Lightcrystal",
+                "thumbnail": "assets/img/other_materials/lightcrystal.png"
+            },
+            {
+                "item_id": 18,
+                "item": "Majestic Horn",
+                "thumbnail": "assets/img/other_materials/majestic_horn.png"
+            },
+            {
+                "item_id": 19,
+                "item": "Twisted Horn",
+                "thumbnail": "assets/img/other_materials/twisted_horn.png"
             }
         ]
     },
@@ -291,11 +336,6 @@
                 "thumbnail": "assets/img/monster_parts/a-rathalos-plate.png"
             },
             {
-                "item_id": 33,
-                "item": "Azure Rathalos Plate",
-                "thumbnail": "assets/img/monster_parts/a-rathalos-plate.png"
-            },
-            {
                 "item_id": 34,
                 "item": "Barroth Carapace",
                 "thumbnail": "assets/img/monster_parts/barroth-carapace.png"
@@ -319,6 +359,86 @@
                 "item_id": 38,
                 "item": "Barroth Tail",
                 "thumbnail": "assets/img/monster_parts/barroth-tail.png"
+            },
+            {
+                "item_id": 39,
+                "item": "Pukei-Pukei Carapace",
+                "thumbnail": "assets/img/monster_parts/pukei-pukei_carapace.png"
+            },
+            {
+                "item_id": 40,
+                "item": "Pukei-Pukei Quill",
+                "thumbnail": "assets/img/monster_parts/pukei-pukei_quill.png"
+            },
+            {
+                "item_id": 41,
+                "item": "Pukei-Pukei Scale",
+                "thumbnail": "assets/img/monster_parts/pukei-pukei_scale.png"
+            },
+            {
+                "item_id": 42,
+                "item": "Pukei-Pukei Tail",
+                "thumbnail": "assets/img/monster_parts/pukei-pukei_tail.png"
+            },
+            {
+                "item_id": 43,
+                "item": "Pukei-Pukei Wing",
+                "thumbnail": "assets/img/monster_parts/pukei-pukei_wing.png"
+            },
+            {
+                "item_id": 44,
+                "item": "Pukei-Pukei Sac",
+                "thumbnail": "assets/img/monster_parts/pukei-pukei_sac.png"
+            },
+            {
+                "item_id": 45,
+                "item": "Jyuratodus Carapace",
+                "thumbnail": "assets/img/monster_parts/jyuratodus_carapace.png"
+            },
+            {
+                "item_id": 46,
+                "item": "Jyuratodus Fang",
+                "thumbnail": "assets/img/monster_parts/jyuratodus_fang.png"
+            },
+            {
+                "item_id": 47,
+                "item": "Jyuratodus Fin",
+                "thumbnail": "assets/img/monster_parts/jyuratodus_fin.png"
+            },
+            {
+                "item_id": 48,
+                "item": "Jyuratodus Scale",
+                "thumbnail": "assets/img/monster_parts/jyuratodus_scale.png"
+            },
+            {
+                "item_id": 49,
+                "item": "Jyuratodus Shell",
+                "thumbnail": "assets/img/monster_parts/jyuratodus_shell.png"
+            },
+            {
+                "item_id": 50,
+                "item": "Diablos Carapace",
+                "thumbnail": "assets/img/monster_parts/diablos_carapace.png"
+            },
+            {
+                "item_id": 51,
+                "item": "Diablos Fang",
+                "thumbnail": "assets/img/monster_parts/diablos_fang.png"
+            },
+            {
+                "item_id": 52,
+                "item": "Diablos Medulla",
+                "thumbnail": "assets/img/monster_parts/diablos_medulla.png"
+            },
+            {
+                "item_id": 53,
+                "item": "Diablos Ridge",
+                "thumbnail": "assets/img/monster_parts/diablos_ridge.png"
+            },
+            {
+                "item_id": 54,
+                "item": "Diablos Shell",
+                "thumbnail": "assets/img/monster_parts/diablos_shell.png"
             }
         ]
     }

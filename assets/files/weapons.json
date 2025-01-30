@@ -204,6 +204,41 @@
                         "add": "2 Empowered Great Sword Block\n2 Paralysing Slash"
                     }
                 ]
+            },
+            {
+                "weapon_type_id": 6,
+                "weapon_type": "Pukei-Pukei",
+                "thumbnail": "assets/img/equiments/sets/pukei-pukei.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Blooming Blade",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 0,
+                            "damage_2": 5,
+                            "damage_3": 6,
+                            "damage_4": 1
+                        },
+                        "remove": "2 True Charged Slash",
+                        "add": "2 Toxic Charged Slash"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Datura Blaze",
+                        "rarity": 4,
+                        "defense": 1,
+                        "damage_cards": {
+                            "damage_1": 0,
+                            "damage_2": 3,
+                            "damage_3": 8,
+                            "damage_4": 3
+                        },
+                        "remove": "2 True Charged Slash\n2 Charge Up",
+                        "add": "2 Toxic Charged Slash\n2 Poisoned Charge Up"
+                    }
+                ]
             }
         ],
         "weapon_priority_set": [
@@ -245,6 +280,14 @@
                     [1,1],
                     [4,1],
                     [4,2]
+                ]
+            },
+            {
+                "weapon_type_id": 6,
+                "priority": [
+                    [1,1],
+                    [6,1],
+                    [6,2]
                 ]
             }
         ]
@@ -419,6 +462,76 @@
                         "add": "2 Blast Coating\n2 Poison Coating\n3 Blazing Charged Shot"
                     }
                 ]
+            },
+            {
+                "weapon_type_id": 5,
+                "weapon_type": "Pukei-Pukei",
+                "thumbnail": "assets/img/equiments/sets/pukei-pukei.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Blooming Arch",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 1,
+                            "damage_2": 7,
+                            "damage_3": 2,
+                            "damage_4": 0
+                        },
+                        "remove": "4 Power Coating\n2 Shot",
+                        "add": "2 Poison Coating\n2 Paralysis Coating\n2 Poisoned Shot"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Datura String",
+                        "rarity": 4,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 1,
+                            "damage_2": 7,
+                            "damage_3": 4,
+                            "damage_4": 0
+                        },
+                        "remove": "4 Power Coating\n6 Shot",
+                        "add": "2 Poison Coating\n2 Paralysis Coating\n2 Poisoned Shot\n4 Flared Shot"
+                    }
+                ]
+            },
+            {
+                "weapon_type_id": 6,
+                "weapon_type": "Diablos",
+                "thumbnail": "assets/img/equiments/sets/diablos.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Diablos Bow",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 4,
+                            "damage_2": 4,
+                            "damage_3": 4,
+                            "damage_4": 0
+                        },
+                        "remove": "2 Power Coating\n2 Shot",
+                        "add": "2 Paralysis Coating\n2 Rending Arrows"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Diablos Coilbender",
+                        "rarity": 4,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 2,
+                            "damage_2": 7,
+                            "damage_3": 5,
+                            "damage_4": 0
+                        },
+                        "remove": "2 Power Coating\n2 Shot\n2 Charge Sidestep",
+                        "add": "2 Paralysis Coating\n2 Rending Arrows\n2 Rapid Dash"
+                    }
+                ]
             }
         ],
         "weapon_priority_set": [
@@ -452,6 +565,22 @@
                     [2,1],
                     [4,1],
                     [4,2]
+                ]
+            },
+            {
+                "weapon_type_id": 5,
+                "priority": [
+                    [2,1],
+                    [5,1],
+                    [5,2]
+                ]
+            },
+            {
+                "weapon_type_id": 6,
+                "priority": [
+                    [2,1],
+                    [6,1],
+                    [6,2]
                 ]
             }
         ]
@@ -626,6 +755,76 @@
                         "add": "2 Blazing Fold Slash\n2 Blazing Double Slash"
                     }
                 ]
+            },
+            {
+                "weapon_type_id": 5,
+                "weapon_type": "Jyuratodus",
+                "thumbnail": "assets/img/equiments/sets/jyuratodus.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Madness Pangas",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 2,
+                            "damage_2": 5,
+                            "damage_3": 3,
+                            "damage_4": 0
+                        },
+                        "remove": "4 Blade Dance",
+                        "add": "4 Water Dance"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Jyura Hatchets",
+                        "rarity": 4,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 2,
+                            "damage_2": 6,
+                            "damage_3": 4,
+                            "damage_4": 0
+                        },
+                        "remove": "4 Blade Dance\n2 Rapid Spin",
+                        "add": "4 Water Dance\n2 Flurry Rush"
+                    }
+                ]
+            },
+            {
+                "weapon_type_id": 6,
+                "weapon_type": "Diablos",
+                "thumbnail": "assets/img/equiments/sets/diablos.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Diablos Hatchets",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 2,
+                            "damage_2": 6,
+                            "damage_3": 4,
+                            "damage_4": 0
+                        },
+                        "remove": "2 Double Slash",
+                        "add": "2 Brutal Double Slash"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Diablos Clubs",
+                        "rarity": 4,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 2,
+                            "damage_2": 7,
+                            "damage_3": 5,
+                            "damage_4": 0
+                        },
+                        "remove": "2 Double Slash\n2 Demon Mode",
+                        "add": "2 Brutal Double Slash\n2 Brutal Demon Mode"
+                    }
+                ]
             }
         ],
         "weapon_priority_set": [
@@ -659,6 +858,22 @@
                     [2,1],
                     [4,1],
                     [4,2]
+                ]
+            },
+            {
+                "weapon_type_id": 5,
+                "priority": [
+                    [2,1],
+                    [5,1],
+                    [5,2]
+                ]
+            },
+            {
+                "weapon_type_id": 6,
+                "priority": [
+                    [2,1],
+                    [6,1],
+                    [6,2]
                 ]
             }
         ]
@@ -868,6 +1083,41 @@
                         "add": "2 Powerful Double Slash\n 2 Steadfast Chop"
                     }
                 ]
+            },
+            {
+                "weapon_type_id": 6,
+                "weapon_type": "Pukei-Pukei",
+                "thumbnail": "assets/img/equiments/sets/pukei-pukei.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Blooming Knife",
+                        "rarity": 3,
+                        "defense": 1,
+                        "damage_cards": {
+                            "damage_1": 1,
+                            "damage_2": 8,
+                            "damage_3": 3,
+                            "damage_4": 0
+                        },
+                        "remove": "1 Round Slash\n1 Rising Slash",
+                        "add": "2 Poison Spin Slash"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Datura Blossom",
+                        "rarity": 4,
+                        "defense": 1,
+                        "damage_cards": {
+                            "damage_1": 1,
+                            "damage_2": 9,
+                            "damage_3": 4,
+                            "damage_4": 0
+                        },
+                        "remove": "1 Round Slash\n1 Rising Slash\nAny 3 Cards",
+                        "add": "2 Poison Spin Slash\n3 Toxicity"
+                    }
+                ]
             }
         ],
         "weapon_priority_set": [
@@ -909,6 +1159,14 @@
                     [1,1],
                     [4,1],
                     [4,2]
+                ]
+            },
+            {
+                "weapon_type_id": 6,
+                "priority": [
+                    [1,1],
+                    [6,1],
+                    [6,2]
                 ]
             }
         ]
@@ -1083,6 +1341,76 @@
                         "add": "2 Brutal Bludgeon\n2 Pulverising Brutal Big Bang"
                     }
                 ]
+            },
+            {
+                "weapon_type_id": 5,
+                "weapon_type": "Pukei-Pukei",
+                "thumbnail": "assets/img/equiments/sets/pukei-pukei.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Blooming Hammer",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 1,
+                            "damage_2": 8,
+                            "damage_3": 0,
+                            "damage_4": 3
+                        },
+                        "remove": "2 Side Smash",
+                        "add": "2 Poison Side Smash"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Buon Fiore",
+                        "rarity": 4,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 1,
+                            "damage_2": 9,
+                            "damage_3": 0,
+                            "damage_4": 4
+                        },
+                        "remove": "2 Side Smash\n2 Charged Upswing",
+                        "add": "2 Poison Side Smash\n2 Poison Charged Upswing"
+                    }
+                ]
+            },
+            {
+                "weapon_type_id": 6,
+                "weapon_type": "Diablos",
+                "thumbnail": "assets/img/equiments/sets/diablos.png",
+                "items": [
+                    {
+                        "item_id": 1,
+                        "item": "Diablos Sledge",
+                        "rarity": 3,
+                        "defense": 0,
+                        "damage_cards": {
+                            "damage_1": 4,
+                            "damage_2": 3,
+                            "damage_3": 0,
+                            "damage_4": 5
+                        },
+                        "remove": "4 Big Bang",
+                        "add": "4 Crippling Big Bang"
+                    },
+                    {
+                        "item_id": 2,
+                        "item": "Diablos Shatterer",
+                        "rarity": 4,
+                        "defense": 1,
+                        "damage_cards": {
+                            "damage_1": 3,
+                            "damage_2": 5,
+                            "damage_3": 0,
+                            "damage_4": 6
+                        },
+                        "remove": "4 Big Bang\n2 Upswing",
+                        "add": "4 Crippling Big Bang\n2 Brutal Upswing"
+                    }
+                ]
             }
         ],
         "weapon_priority_set": [
@@ -1116,6 +1444,22 @@
                     [2,1],
                     [3,1],
                     [3,2]
+                ]
+            },
+            {
+                "weapon_type_id": 5,
+                "priority": [
+                    [1,1],
+                    [5,1],
+                    [5,2]
+                ]
+            },
+            {
+                "weapon_type_id": 6,
+                "priority": [
+                    [2,1],
+                    [6,1],
+                    [6,2]
                 ]
             }
         ]

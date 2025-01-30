@@ -30,122 +30,129 @@ class Account extends StatelessWidget {
               return Center(child: CircularProgressIndicator());
             } else {
               return Center(
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  Text(
-                    "Saved Character",
-                    style: TextAppStyle.textsBodySuperLargeProminent(),
-                  ),
-                  const SizedBox(height: 20),
-                  Obx(() {
-                    if (Hcontrol.accounts.isEmpty) {
-                      return const SizedBox.shrink();
-                    } else {
-                      return Column(
-                        children: Hcontrol.accounts.map((account) {
-                          HunterClassModel? hunterClass = Hcontrol
-                              .hunterClassesList.value
-                              .firstWhereOrNull((element) =>
-                                  element.hunter_class_id ==
-                                  account.hunter_class_id);
-                          return Container(
-                            margin: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 20),
-                            padding: EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                                color: Colors.brown.shade400,
-                                border:
-                                    Border.all(color: Colors.black, width: 1)),
-                            child: InkWell(
-                              onTap: () {
-                                Hcontrol.selectHunter(account);
-                                //Hcontrol.PrintSelectedHunter();
-                                Get.toNamed(Routes.Root);
-                              },
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Container(
-                                          width: 50,
-                                          height: 50,
-                                          padding: EdgeInsets.all(5),
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          child: Image.asset(
-                                            hunterClass!.thumbnail,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment.center,
-                                          )),
-                                      SizedBox(width: 20),
-                                      Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                              "Hunter Name : \n${account.hunter_name}",
-                                              style: TextAppStyle
-                                                  .textsBodyMediumProminent()),
-                                          Text(
-                                              "\nCampiagn Day : ${account.campaign_day}",
-                                              style: TextAppStyle
-                                                  .textsBodyMediumProminent())
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                  IconButton(
-                                      style: ButtonStyle(
-                                        backgroundColor:
-                                            MaterialStateProperty.all(
-                                                Colors.red.shade900),
-                                        shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    Text(
+                      "Saved Character",
+                      style: TextAppStyle.textsBodySuperLargeProminent(),
+                    ),
+                    const SizedBox(height: 20),
+                    Obx(() {
+                      if (Hcontrol.accounts.isEmpty) {
+                        return const SizedBox.shrink();
+                      } else {
+                        return Column(
+                          children: Hcontrol.accounts.map((account) {
+                            HunterClassModel? hunterClass = Hcontrol
+                                .hunterClassesList.value
+                                .firstWhereOrNull((element) =>
+                                    element.hunter_class_id ==
+                                    account.hunter_class_id);
+                            return Container(
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 20),
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                  color: Colors.brown.shade400,
+                                  border: Border.all(
+                                      color: Colors.black, width: 1)),
+                              child: InkWell(
+                                onTap: () {
+                                  Hcontrol.selectHunter(account);
+                                  //Hcontrol.PrintSelectedHunter();
+                                  Get.toNamed(Routes.Root);
+                                },
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Container(
+                                            width: 50,
+                                            height: 50,
+                                            padding: EdgeInsets.all(5),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            child: Image.asset(
+                                              hunterClass!.thumbnail,
+                                              fit: BoxFit.cover,
+                                              alignment: Alignment.center,
+                                            )),
+                                        SizedBox(width: 20),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                                ": Hunter Name :\n( ${account.hunter_name} )",
+                                                textAlign: TextAlign.center,
+                                                style: TextAppStyle
+                                                    .textsBodyMediumProminent(
+                                                        color: Colors.white)),
+                                            Text(
+                                                "\nCampiagn Day : ${account.campaign_day}",
+                                                textAlign: TextAlign.center,
+                                                style: TextAppStyle
+                                                    .textsBodyMediumProminent(
+                                                        color: Colors.white))
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    IconButton(
+                                        style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  Colors.red.shade900),
+                                          shape: MaterialStateProperty.all(
+                                            RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      onPressed: () {
-                                        showdialogDelete(
-                                            context, account.hunter_id);
-                                      },
-                                      icon: Icon(
-                                        Icons.cancel,
-                                        color: Colors.white,
-                                        size: 20,
-                                      ))
-                                ],
+                                        onPressed: () {
+                                          showdialogDelete(
+                                              context, account.hunter_id);
+                                        },
+                                        icon: Icon(
+                                          Icons.cancel,
+                                          color: Colors.white,
+                                          size: 20,
+                                        ))
+                                  ],
+                                ),
                               ),
-                            ),
-                          );
-                        }).toList(),
-                      );
-                    }
-                  }),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.brown.shade400),
-                      ),
-                      onPressed: () => _showCreateAccountDialog(context),
-                      child: SizedBox(
-                        height: 80,
-                        width: 160,
-                        child: Icon(
-                          Icons.add_circle_sharp,
-                          size: 50,
-                          color: Colors.white,
+                            );
+                          }).toList(),
+                        );
+                      }
+                    }),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.brown.shade400),
                         ),
-                      )),
-                ]),
+                        onPressed: () => _showCreateAccountDialog(context),
+                        child: SizedBox(
+                          height: 80,
+                          width: 160,
+                          child: Icon(
+                            Icons.add_circle_sharp,
+                            size: 50,
+                            color: Colors.white,
+                          ),
+                        )),
+                  ]),
+                ),
               );
             }
           }),

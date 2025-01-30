@@ -83,5 +83,35 @@
         "ability_id": 17,
         "ability_name": "Stun Resistance",
         "ability": "Hunter จะต้านทานต่อสถานะ Stun ได้"
+    },
+    {
+        "ability_id": 18,
+        "ability_name": "Sporepuff Expert",
+        "ability": "เมื่อ Hunter ได้รับการฟื้นฟูพลังชีวิต (ยกเว้น Potion) จะได้รับการฟื้นฟูพลังชีวิตเพิ่มเติม +1 health"
+    },
+    {
+        "ability_id": 19,
+        "ability_name": "Botanist",
+        "ability": "ระหว่างช่วง gathering phase เมื่อ Hunter ได้รับ Potion สามารถฟื้นฟูพลังชีวิตเต็มทันทีโดยไม่ต้องใช้ยา"
+    },
+    {
+        "ability_id": 20,
+        "ability_name": "Aquatic Expert",
+        "ability": "เมื่อ Hunter เคลื่อนที่เข้าสู่ ช่องหนองน้ำ Hunter ไม่จำเป็นต้องทิ้ง Damage Cards."
+    },
+    {
+        "ability_id": 21,
+        "ability_name": "Water Attack",
+        "ability": "เมื่อ Hunter เล่นการ์ดโจมตีที่มีการโจมตีธาตุ Water, จั๋ว Damage card เพิ่มเติม +1 ใบ"
+    },
+    {
+        "ability_id": 22,
+        "ability_name": "Heroics",
+        "ability": "ในระหว่างที่ Hunter พลังชีวิตเหลือ 2 หรือน้อยกว่า เมื่อ Hunter เล่นการ์ดโจมตีที่ไม่มีการโจมตีธาตุ จั๋ว Damage Card เพิ่ม +1 ใบ"
+    },
+    {
+        "ability_id": 23,
+        "ability_name": "Diablos Mastery",
+        "ability": "เมื่อ Hunter เล่นการ์ดโจมตีที่ไม่มีการโจมตีธาตุ จั๋ว Damage Card เพิ่ม +1 ใบ"
     }
 ]
