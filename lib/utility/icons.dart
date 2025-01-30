@@ -69,6 +69,8 @@ class WeaponsRarityIcons {
         return "assets/img/equiments/weapons/sword-shieldR1.png";
       } else if (Weaponclass == 5) {
         return "assets/img/equiments/weapons/hammerR1.png";
+      } else if (Weaponclass == 6) {
+        return "assets/img/equiments/weapons/charge-bladeR1.png";
       } else {
         return "";
       }
@@ -83,6 +85,8 @@ class WeaponsRarityIcons {
         return "assets/img/equiments/weapons/sword-shieldR2.png";
       } else if (Weaponclass == 5) {
         return "assets/img/equiments/weapons/hammerR2.png";
+      } else if (Weaponclass == 6) {
+        return "assets/img/equiments/weapons/charge-bladeR2.png";
       } else {
         return "";
       }
@@ -97,6 +101,8 @@ class WeaponsRarityIcons {
         return "assets/img/equiments/weapons/sword-shieldR3.png";
       } else if (Weaponclass == 5) {
         return "assets/img/equiments/weapons/hammerR3.png";
+      } else if (Weaponclass == 6) {
+        return "assets/img/equiments/weapons/charge-bladeR3.png";
       } else {
         return "";
       }
@@ -111,6 +117,8 @@ class WeaponsRarityIcons {
         return "assets/img/equiments/weapons/sword-shieldR4.png";
       } else if (Weaponclass == 5) {
         return "assets/img/equiments/weapons/hammerR4.png";
+      } else if (Weaponclass == 6) {
+        return "assets/img/equiments/weapons/charge-bladeR4.png";
       } else {
         return "";
       }

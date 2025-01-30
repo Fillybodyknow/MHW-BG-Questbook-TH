@@ -23,5 +23,10 @@
         "hunter_class_id" : 5,
         "hunter_class" : "Hammer",
         "thumbnail" : "assets/img/class/hammer.webp"
+    },
+    {
+        "hunter_class_id" : 6,
+        "hunter_class" : "Charge Blade",
+        "thumbnail" : "assets/img/class/charge_blade.webp"
     }
 ]

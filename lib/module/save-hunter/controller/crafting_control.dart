@@ -503,7 +503,7 @@ class CraftingControl extends GetxController {
     return double.parse(average.toStringAsFixed(2));
   }
 
-  Widget CatagolyEquipBox(int equipSetid) {
+  Widget CatagolyEquipBox(int equipSetid, BuildContext context) {
     RxBool IsShow = false.obs;
     armorSetModel SetArmor =
         armorSetList.firstWhere((item) => item.equip_set_id == equipSetid);
@@ -616,13 +616,17 @@ class CraftingControl extends GetxController {
                       )
                     : SizedBox.shrink()),
           ),
-          Obx(() => IsShow.value ? SizedBox(height: 10) : SizedBox.shrink()),
+          Obx(() => IsShow.value
+              ? SizedBox(height: 10)
+              : SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                )),
         ],
       ),
     );
   }
 
-  Widget CatagolyWeaponBox(WeaponsList weapon) {
+  Widget CatagolyWeaponBox(WeaponsList weapon, BuildContext context) {
     RxBool IsShow = false.obs;
     WeaponPriorityModel priorityModel = weaponPriorityList
         .firstWhere((e) => e.weapon_type_id == weapon.weaponTypeId);
@@ -700,7 +704,9 @@ class CraftingControl extends GetxController {
                       )
                     : SizedBox.shrink(),
               )),
-          Obx(() => IsShow.value ? SizedBox(height: 10) : SizedBox.shrink()),
+          Obx(() => IsShow.value
+              ? SizedBox(height: 10)
+              : SizedBox(width: MediaQuery.of(context).size.width)),
         ],
       ),
     );

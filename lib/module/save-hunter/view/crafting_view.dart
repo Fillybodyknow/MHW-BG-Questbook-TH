@@ -100,7 +100,8 @@ class CraftingView extends StatelessWidget {
                                           } else {
                                             return craftingControl
                                                 .CatagolyEquipBox(
-                                                    armorSet.equip_set_id);
+                                                    armorSet.equip_set_id,
+                                                    context);
                                           }
                                         }).toList())
                                       : IsSelectedType.value == 2
@@ -109,7 +110,8 @@ class CraftingView extends StatelessWidget {
                                                   .weaponsSetList
                                                   .map((weapon) {
                                                 return craftingControl
-                                                    .CatagolyWeaponBox(weapon);
+                                                    .CatagolyWeaponBox(
+                                                        weapon, context);
                                               }).toList(),
                                             )
                                           : SizedBox.shrink(),

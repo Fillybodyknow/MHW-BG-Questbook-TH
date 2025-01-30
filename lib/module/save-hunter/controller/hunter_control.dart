@@ -192,7 +192,7 @@ class HunterControl extends GetxController {
         Helm = InvArmorModel(equip_set_id: 1, equip_id: 1);
         Mail = InvArmorModel(equip_set_id: 1, equip_id: 2);
         Gauntlets = InvArmorModel(equip_set_id: 1, equip_id: 3);
-      } else if (classId == 3 || classId == 4 || classId == 5) {
+      } else if (classId == 3 || classId == 4 || classId == 5 || classId == 6) {
         Weapon = InvWeaponModel(weapon_type_id: 1.obs, item_id: 1.obs);
         Helm = InvArmorModel(equip_set_id: 2, equip_id: 1);
         Mail = InvArmorModel(equip_set_id: 2, equip_id: 2);
