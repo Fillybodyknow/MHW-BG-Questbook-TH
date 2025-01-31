@@ -173,6 +173,11 @@
                 "item_id": 19,
                 "item": "Twisted Horn",
                 "thumbnail": "assets/img/other_materials/twisted_horn.png"
+            },
+            {
+                "item_id": 20,
+                "item": "Novacrystal",
+                "thumbnail": "assets/img/other_materials/novacrystal.png"
             }
         ]
     },
@@ -439,6 +444,21 @@
                 "item_id": 54,
                 "item": "Diablos Shell",
                 "thumbnail": "assets/img/monster_parts/diablos_shell.png"
+            },
+            {
+                "item_id": 55,
+                "item": "Black Diablos Carapace",
+                "thumbnail": "assets/img/monster_parts/black_diablos_carapace.png"
+            },
+            {
+                "item_id": 56,
+                "item": "Black Diablos Horn",
+                "thumbnail": "assets/img/monster_parts/black_diablos_horn.png"
+            },
+            {
+                "item_id": 57,
+                "item": "Black Diablos Ridge",
+                "thumbnail": "assets/img/monster_parts/black_diablos_ridge.png"
             }
         ]
     }

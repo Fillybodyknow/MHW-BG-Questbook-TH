@@ -861,6 +861,90 @@
                         "amount": 1
                     }
                 ]
+            },
+            {
+                "equip_set_id": 14,
+                "equip_id": 1,
+                "crafting_table": [
+                    {
+                        "material": [
+                            3,57
+                        ],
+                        "amount": 2
+                    },
+                    {
+                        "material": [
+                            3,56
+                        ],
+                        "amount": 1
+                    },
+                    {
+                        "material": [
+                            2,18
+                        ],
+                        "amount": 1
+                    },
+                    {
+                        "material": [
+                            2,20
+                        ],
+                        "amount": 2
+                    }
+                ]
+            },
+            {
+                "equip_set_id": 14,
+                "equip_id": 2,
+                "crafting_table": [
+                    {
+                        "material": [
+                            3,55
+                        ],
+                        "amount": 1
+                    },
+                    {
+                        "material": [
+                            3,56
+                        ],
+                        "amount": 2
+                    },
+                    {
+                        "material": [
+                            3,52
+                        ],
+                        "amount": 1
+                    }
+                ]
+            },
+            {
+                "equip_set_id": 14,
+                "equip_id": 3,
+                "crafting_table": [
+                    {
+                        "material": [
+                            3,57
+                        ],
+                        "amount": 1
+                    },
+                    {
+                        "material": [
+                            3,55
+                        ],
+                        "amount": 2
+                    },
+                    {
+                        "material": [
+                            3,56
+                        ],
+                        "amount": 1
+                    },
+                    {
+                        "material": [
+                            2,16
+                        ],
+                        "amount": 1
+                    }
+                ]
             }
         ]
     },

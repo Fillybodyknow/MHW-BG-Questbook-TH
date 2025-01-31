@@ -113,5 +113,20 @@
         "ability_id": 23,
         "ability_name": "Diablos Mastery",
         "ability": "เมื่อ Hunter เล่นการ์ดโจมตีที่ไม่มีการโจมตีธาตุ จั๋ว Damage Card เพิ่ม +1 ใบ"
+    },
+    {
+        "ability_id": 24,
+        "ability_name": "Black Diablos Mastery",
+        "ability": "เมื่อ Hunter เล่นการ์ดโจมตีที่ไม่มีการโจมตีธาตุ จั๋ว Damage Card เพิ่ม +1 ใบ"
+    },
+    {
+        "ability_id": 25,
+        "ability_name": "Resentment",
+        "ability": "หาก Hunter ฟื้นฟูพลังชีวิตในเทิร์นก่อนหน้านี้ การ์ดโจมตีใบแรกที่คุณเล่นในเทิร์นนี้จะได้รับ +2 ความเสียหาย"
+    },
+    {
+        "ability_id": 26,
+        "ability_name": "Part Breaker",
+        "ability": "เมื่อ Hunter เล่นการ์ดโจมตีที่มีการ Break Part การ์ดนั้นได้รับ Break Part +1 หน่วย"
     }
 ]
